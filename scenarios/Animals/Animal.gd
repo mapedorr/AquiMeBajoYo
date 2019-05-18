@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2(0, 0)
 export (float) var friction_ration = 0.9
-export (float) var max_speed = 100
+export (float) var max_speed = 500
 export (float) var slide_ratio = 0.8
 export (float) var transference_ratio = 0.8
 
@@ -26,8 +26,8 @@ func _physics_process(delta):
 		collision_info.collider.add_force(-collision_info.normal*velocity.length()*transference_ratio)
 		add_force((velocity.normalized()+collision_info.normal)*velocity.length()*slide_ratio)
 
-	if velocity.length()>0:
-		rotation = velocity.angle()-PI/2
+	if velocity.length()>5:
+		rotation += (velocity.angle()-PI/2)*0.01
 		
 func _process(delta):
 	$CowSounds/IdleMoo.transform = transform

@@ -8,13 +8,12 @@ radius = 43.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-run_speed = 200
-
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
