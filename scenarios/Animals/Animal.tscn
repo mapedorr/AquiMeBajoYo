@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenarios/Animals/Animal.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/vaca.png" type="Texture" id=2]
+[ext_resource path="res://scenarios/Assets/ojos_locos.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 43.0
+radius = 41.0
 
 [node name="Animal" type="KinematicBody2D" groups=[
 "Animals",
 ]]
 script = ExtResource( 1 )
+friction_ration = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="ojos_locos" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3.11099, 6.33339 )
+texture = ExtResource( 3 )
 

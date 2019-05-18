@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scenarios/Barra.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -12,16 +13,16 @@ extents = Vector2( 30.2439, 20 )
 extents = Vector2( 41.5, 280.5 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 96, 42 )
+extents = Vector2( 96, 9.00006 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 49, 42 )
+extents = Vector2( 49, 7.00006 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 240, 42 )
+extents = Vector2( 240, 8.00008 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 194.547, 42 )
+extents = Vector2( 194.547, 10.0001 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1001.5, 40.5003 )
@@ -41,7 +42,7 @@ __meta__ = {
 
 [node name="Spawn" type="Sprite" parent="."]
 modulate = Color( 1, 0.74902, 0, 1 )
-position = Vector2( 254.142, 184.16 )
+position = Vector2( -78.8579, 549.16 )
 texture = ExtResource( 3 )
 
 [node name="Target" type="Sprite" parent="."]
@@ -64,19 +65,19 @@ position = Vector2( -362, 358.5 )
 shape = SubResource( 2 )
 
 [node name="Top1" type="CollisionShape2D" parent="BusBorders"]
-position = Vector2( 64, 78 )
+position = Vector2( 64, 111 )
 shape = SubResource( 5 )
 
 [node name="Top2" type="CollisionShape2D" parent="BusBorders"]
-position = Vector2( -273, 78 )
+position = Vector2( -273, 113 )
 shape = SubResource( 6 )
 
 [node name="Top3" type="CollisionShape2D" parent="BusBorders"]
-position = Vector2( 592, 78 )
+position = Vector2( 592, 112 )
 shape = SubResource( 7 )
 
 [node name="Top4" type="CollisionShape2D" parent="BusBorders"]
-position = Vector2( 1410, 78 )
+position = Vector2( 1410, 110 )
 shape = SubResource( 8 )
 
 [node name="Bottom" type="CollisionShape2D" parent="BusBorders"]
@@ -134,4 +135,8 @@ position = Vector2( 1509, 165 )
 
 [node name="Barra13" parent="Bars" instance=ExtResource( 4 )]
 position = Vector2( 1509, 555 )
+
+[node name="gato_bus" type="Sprite" parent="."]
+position = Vector2( 1557.55, 166 )
+texture = ExtResource( 5 )
 
