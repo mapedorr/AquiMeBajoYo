@@ -16,6 +16,11 @@ func _ready():
 	$Bus.connect("exit_entered", self, "finish_level")
 	# Setup the timers
 	self.setup_time()
+	$UI/lose.connect("button_down", self, 'restart')
+	$UI/win.connect("button_down", self, 'restart')
+
+func restart():
+	get_tree().reload_current_scene()
 
 func _process(delta):
 	if secs == 30:
@@ -31,6 +36,7 @@ func finish_level(body):
 		$Mx.stop()
 		$Mx_Win.play()
 		$Travel.stop()
+		$UI.win()
 
 	# Check if we're debugging
 	if debugging:
@@ -56,6 +62,7 @@ func travel_timeout():
 	secs -= 1
 	if secs == 0:
 		$Travel.stop()
+		$UI.lose()
 		print("You are a loser")
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:

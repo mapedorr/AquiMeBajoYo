@@ -101,10 +101,10 @@ script = ExtResource( 6 )
 [node name="UI" parent="." instance=ExtResource( 7 )]
 
 [node name="Debug" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="GameTime" type="Label" parent="Debug"]
+visible = false
 anchor_right = 1.0
 margin_left = 537.895
 margin_top = 560.0
@@ -114,7 +114,6 @@ custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
 text = "00"
 
 [node name="Background" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]
 autoplay = "Platforms"
@@ -143,7 +142,6 @@ position = Vector2( 2580, 0 )
 texture = ExtResource( 8 )
 
 [node name="Streets" type="ParallaxLayer" parent="Background"]
-editor/display_folded = true
 position = Vector2( -293, 666 )
 motion_mirroring = Vector2( 274, 0 )
 

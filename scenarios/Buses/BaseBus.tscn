@@ -5,9 +5,10 @@
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scenarios/Barra.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
-[ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
-[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
+
 [ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -46,7 +47,7 @@ __meta__ = {
 
 [node name="Spawn" type="Sprite" parent="."]
 modulate = Color( 1, 0.74902, 0, 1 )
-position = Vector2( -78.8579, 549.16 )
+position = Vector2( 290.142, 462.16 )
 texture = ExtResource( 3 )
 
 [node name="Target" type="Sprite" parent="."]
@@ -149,233 +150,242 @@ position = Vector2( 1509, 555 )
 position = Vector2( 1557.55, 166 )
 texture = ExtResource( 5 )
 
-[node name="perri" type="Sprite" parent="."]
-position = Vector2( 1555.55, 551 )
-texture = ExtResource( 6 )
-
 [node name="Animals" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Animal" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1385.57, 397.375 )
 
-[node name="Animal28" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -52.9998, 339 )
+[node name="Animal28" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( -75.4998, 352.5 )
 
-[node name="Animal61" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal61" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 14.5002, 196.5 )
 
-[node name="Animal63" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 14.5002, 196.5 )
+[node name="Animal63" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( -246.5, 315 )
 
-[node name="Animal36" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal36" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 892, 382.5 )
 
-[node name="Animal43" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal43" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1319.5, 337.5 )
 
-[node name="Animal49" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal49" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1372, 189 )
 
-[node name="Animal55" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal55" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 626.5, 363 )
 
-[node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal5" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 326.5, 367.5 )
 
-[node name="Animal29" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal29" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -153.5, 322.5 )
 
-[node name="Animal39" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 791.5, 366 )
-scale = Vector2( 2, 2 )
-friction_ration = 0.1
-max_speed = 50.0
-slide_ratio = 0.1
-transference_ratio = 0.1
+[node name="Animal42" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1168, 327 )
 
-[node name="Animal42" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1219, 321 )
-
-[node name="Animal48" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal48" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1271.5, 172.5 )
 
-[node name="Animal59" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal59" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 526, 346.5 )
 
-[node name="Animal6" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal6" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 235, 259.5 )
 
-[node name="Animal7" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal7" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 194.5, 445.5 )
 
-[node name="Animal8" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal8" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 211, 549 )
 
-[node name="Animal9" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal9" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 335.5, 543 )
 
-[node name="Animal10" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal10" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 385, 454.5 )
 
-[node name="Animal31" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal31" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -94.9998, 409.5 )
 
-[node name="Animal35" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal35" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 850, 453 )
 
-[node name="Animal44" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1277.5, 408 )
+[node name="Animal44" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1292.5, 490.5 )
 
-[node name="Animal46" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal46" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1330, 259.5 )
 
-[node name="Animal58" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal58" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 584.5, 433.5 )
 
-[node name="Animal11" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal11" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 452.5, 279 )
 
-[node name="Animal12" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal12" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 481, 462 )
 
-[node name="Animal30" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1.00024, 417 )
+[node name="Animal30" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( -275, 433.5 )
 
-[node name="Animal38" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal38" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 946, 460.5 )
 
-[node name="Animal41" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1373.5, 415.5 )
+[node name="Animal41" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1247.5, 418.5 )
 
-[node name="Animal50" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1426, 267 )
+[node name="Animal50" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1513, 342 )
 
-[node name="Animal54" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal54" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 680.5, 441 )
 
-[node name="Animal20" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal20" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1034, 560.5 )
 
-[node name="Animal13" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 521.5, 376.5 )
+[node name="Animal13" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 428.5, 366 )
 
-[node name="Animal32" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 41.5002, 331.5 )
+[node name="Animal32" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 31.0002, 366 )
 
-[node name="Animal60" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal39" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 523, 558 )
+
+[node name="Animal60" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 109, 189 )
 
-[node name="Animal62" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 109, 189 )
+[node name="Animal62" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 220, 366 )
 
-[node name="Animal34" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal34" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 986.5, 375 )
 
-[node name="Animal40" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1414, 330 )
+[node name="Animal40" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1537, 439.5 )
 
-[node name="Animal51" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal51" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1466.5, 181.5 )
 
-[node name="Animal56" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal56" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 721, 355.5 )
 
-[node name="Animal21" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal21" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1074.5, 475 )
 
-[node name="Animal14" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal14" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 536.5, 285 )
 
-[node name="Animal23" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal23" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1089.5, 383.5 )
 
-[node name="Animal15" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal15" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 523, 189 )
 
-[node name="Animal22" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1076, 287.5 )
+[node name="Animal22" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 969.5, 244 )
 
-[node name="Animal16" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal16" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 395.5, 175.5 )
 
-[node name="Animal26" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 948.5, 274 )
+[node name="Animal26" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1076, 172 )
 
-[node name="Animal17" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal17" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -281, 220.5 )
 
-[node name="Animal64" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal64" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -264.5, 538.5 )
 
-[node name="Animal65" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal65" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -177.5, 543 )
 
-[node name="Animal66" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal66" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 104.5, 537 )
 
-[node name="Animal67" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal67" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 134.5, 339 )
 
-[node name="Animal68" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal68" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -176, 211.5 )
 
-[node name="Animal69" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal69" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -91.9998, 237 )
 
-[node name="Animal24" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 696.5, 367 )
+[node name="Animal24" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 795.5, 385 )
 
-[node name="Animal18" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal18" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 295, 174 )
 
-[node name="Animal25" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal25" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 848, 272.5 )
 
-[node name="Animal53" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal53" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 102.5, 446.5 )
 
-[node name="Animal19" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 221.5, 169.5 )
+[node name="Animal19" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 208, 168 )
 
-[node name="Animal27" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal27" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 774.5, 268 )
 
-[node name="Animal52" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 29.0002, 442 )
+[node name="Animal52" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( -15.9998, 463 )
 
-[node name="Animal2" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal70" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 80.0001, 266.5 )
+
+[node name="Animal2" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1247.47, 247.355 )
 
-[node name="Animal33" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal33" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( -200, 410 )
 
-[node name="Animal37" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal37" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 745, 453.5 )
 
-[node name="Animal45" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal45" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1172.5, 408.5 )
 
-[node name="Animal47" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1225, 260 )
+[node name="Animal47" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1105, 264.5 )
 
-[node name="Animal57" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 479.5, 434 )
+[node name="Animal57" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 358, 279.5 )
 
-[node name="Animal3" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 874.419, 273.462 )
+[node name="Animal3" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 898.419, 160.962 )
 
-[node name="Animal4" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1122.37, 390.326 )
+[node name="Animal4" parent="Animals" instance=ExtResource( 6 )]
+position = Vector2( 1143.37, 549.326 )
 
-[node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
+[node name="Animal5" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 326.5, 367.5 )
 
-[node name="Marrano" parent="Animals" instance=ExtResource( 8 )]
+[node name="Marrano" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 754.833, 367 )
+
 friction_ration = 0.2
 max_speed = 100.0
 transference_ratio = 0.2
+
+[node name="Marrano3" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 925.833, 308.5 )
+friction_ration = 0.2
+max_speed = 100.0
+transference_ratio = 0.2
+
+[node name="Marrano2" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( -4.16663, 286 )
+friction_ration = 0.2
+max_speed = 100.0
+transference_ratio = 0.2
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [node name="BusBars" type="Sprite" parent="."]
 position = Vector2( 644, 361 )

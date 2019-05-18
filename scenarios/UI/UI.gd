@@ -17,3 +17,9 @@ func update_doors_progress(magnitude = 1):
 	if not $Doors.visible:
 		$Doors.show()
 	$Doors/Progress.value -= magnitude
+
+func win():
+	$win.show()
+
+func lose():
+	$lose.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenarios/UI/Assets/display_fondo.png" type="Texture" id=6]
 [ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=7]
 [ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=8]
+[ext_resource path="res://scenarios/Assets/ohnoosana.png" type="Texture" id=9]
+[ext_resource path="res://scenarios/Assets/uff_win.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pass"
@@ -93,3 +95,16 @@ theme = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
 text = "Próxima parada: XXXXXXX"
 uppercase = true
+
+[node name="lose" type="TextureButton" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 9 )
+
+[node name="win" type="TextureButton" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+
