@@ -11,7 +11,7 @@
 [ext_resource path="res://Audio/AudioAssets/SFX_Cow_Idle_03.ogg" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 41.0
+radius = 43.0
 
 [node name="Animal" type="KinematicBody2D" groups=[
 "Animals",
@@ -22,11 +22,11 @@ __meta__ = {
 }
 friction_ration = 0.6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="ojos_locos" type="Sprite" parent="."]
 visible = false

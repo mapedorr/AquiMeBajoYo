@@ -25,8 +25,8 @@ func get_input():
 		$CollisionShape.shape.radius += 0.2
 		if increased <= 0:
 			increased = 0
-		if $CollisionShape.shape.radius >= 43:
-			$CollisionShape.shape.radius = 43
+		if $CollisionShape.shape.radius >= 40:
+			$CollisionShape.shape.radius = 40
 
 	if Input.is_action_pressed('ui_right'):
 		local_speed.x += 1

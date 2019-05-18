@@ -8,6 +8,7 @@
 [ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
+[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -150,6 +151,7 @@ texture = ExtResource( 6 )
 
 [node name="Animals" type="Node2D" parent="."]
 
+<<<<<<< HEAD
 [node name="Animal" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 1385.57, 397.375 )
 
@@ -364,4 +366,12 @@ position = Vector2( 1122.37, 390.326 )
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 8 )
+[node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 326.5, 367.5 )
+
+[node name="Marrano" parent="Animals" instance=ExtResource( 9 )]
+position = Vector2( 754.833, 367 )
+friction_ration = 0.2
+max_speed = 100.0
+transference_ratio = 0.2
 
