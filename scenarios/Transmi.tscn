@@ -117,29 +117,6 @@ position = Vector2( 160.5, 268.5 )
 modulate = Color( 0.462745, 0.584314, 1, 1 )
 position = Vector2( 292.5, 405 )
 
-[node name="Mx_Win" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-
-[node name="Mx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-autoplay = true
-script = ExtResource( 8 )
-
-[node name="Debug" type="Control" parent="."]
-editor/display_folded = true
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="GameTime" type="Label" parent="Debug"]
-anchor_right = 1.0
-margin_left = 537.895
-margin_top = 560.0
-margin_right = 513.895
-margin_bottom = 574.0
-custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
-text = "00"
-
 [node name="Animal3" parent="Animals" instance=ExtResource( 5 )]
 modulate = Color( 0.462745, 0.584314, 1, 1 )
 position = Vector2( 360, 340.5 )
@@ -255,3 +232,27 @@ position = Vector2( -114, 369 )
 [node name="Animal36" parent="Animals" instance=ExtResource( 5 )]
 modulate = Color( 0.462745, 0.584314, 1, 1 )
 position = Vector2( 928.5, 367.5 )
+
+[node name="Mx_Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Mx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+script = ExtResource( 8 )
+
+[node name="Debug" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="GameTime" type="Label" parent="Debug"]
+anchor_right = 1.0
+margin_left = 537.895
+margin_top = 560.0
+margin_right = 513.895
+margin_bottom = 574.0
+custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
+text = "00"
+
