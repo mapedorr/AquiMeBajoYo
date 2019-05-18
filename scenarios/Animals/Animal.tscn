@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenarios/Animals/Animal.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/vaca.png" type="Texture" id=2]
 [ext_resource path="res://scenarios/Assets/ojos_locos.png" type="Texture" id=3]
+[ext_resource path="res://Audio/CowSound.gd" type="Script" id=4]
+[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/AudioAssets/SFX_Cow_Idle_01.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/AudioAssets/SFX_Cow_Idle_02.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/AudioAssets/SFX_Cow_Idle_03.ogg" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.0
@@ -11,6 +17,9 @@ radius = 41.0
 "Animals",
 ]]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 friction_ration = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,4 +32,37 @@ texture = ExtResource( 2 )
 visible = false
 position = Vector2( -3.11099, 6.33339 )
 texture = ExtResource( 3 )
+
+[node name="CowSounds" type="Node" parent="."]
+script = ExtResource( 4 )
+spec_weight = 40
+
+[node name="IdleMoo" parent="CowSounds" instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 682.574, 310.924 )
+max_distance = 500.0
+attenuation = 1.31951
+RandomVolume = true
+minVolume = -4.0
+maxVolume = 1.0
+RandomPitch = true
+minPitch = -2.0
+maxPitch = 4.0
+MaxOffset = 5.0
+
+[node name="Idle_01" parent="CowSounds/IdleMoo" instance=ExtResource( 6 )]
+stream = ExtResource( 7 )
+max_distance = 1000.0
+attenuation = 1.8025
+
+[node name="Idle_02" parent="CowSounds/IdleMoo" instance=ExtResource( 6 )]
+stream = ExtResource( 8 )
+max_distance = 1000.0
+attenuation = 1.8025
+
+[node name="Idle_03" parent="CowSounds/IdleMoo" instance=ExtResource( 6 )]
+position = Vector2( 3.83655, -2.83655 )
+stream = ExtResource( 9 )
+max_distance = 1000.0
+attenuation = 1.8025
 

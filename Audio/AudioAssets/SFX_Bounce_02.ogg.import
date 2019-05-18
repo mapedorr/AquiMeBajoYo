@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Bounce_02.ogg-519dcdef24d3c8d08f846e674466947f.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/SFX_Bounce_02.ogg"
+dest_files=[ "res://.import/SFX_Bounce_02.ogg-519dcdef24d3c8d08f846e674466947f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -6,6 +6,10 @@ export (float) var max_speed = 100
 export (float) var slide_ratio = 0.8
 export (float) var transference_ratio = 0.8
 
+func _ready():
+	$CowSounds.idleMoo()
+
+
 func add_force(force):
 	velocity += force
 	if velocity.length()>max_speed:
@@ -24,3 +28,6 @@ func _physics_process(delta):
 
 	if velocity.length()>0:
 		rotation = velocity.angle()-PI/2
+		
+func _process(delta):
+	$CowSounds/IdleMoo.transform = transform

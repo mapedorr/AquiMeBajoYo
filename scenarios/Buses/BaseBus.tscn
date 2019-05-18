@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -150,14 +151,17 @@ texture = ExtResource( 6 )
 [node name="Animals" type="Node2D" parent="."]
 
 [node name="Animal" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 427, 384 )
+position = Vector2( 1385.57, 397.375 )
 
 [node name="Animal2" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 280, 455 )
+position = Vector2( 1247.47, 247.355 )
 
 [node name="Animal3" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 353, 275 )
+position = Vector2( 874.419, 273.462 )
 
 [node name="Animal4" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 221, 351 )
+position = Vector2( 1122.37, 390.326 )
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource( 8 )
 

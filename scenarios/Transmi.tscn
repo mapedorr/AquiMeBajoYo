@@ -8,8 +8,6 @@
 [ext_resource path="res://scenarios/Mx.gd" type="Script" id=6]
 [ext_resource path="res://scenarios/UI/UI.tscn" type="PackedScene" id=7]
 
-
-
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -27,7 +25,6 @@ stream = ExtResource( 4 )
 
 [node name="Mx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-autoplay = true
 script = ExtResource( 6 )
 
 [node name="UI" parent="." instance=ExtResource( 7 )]

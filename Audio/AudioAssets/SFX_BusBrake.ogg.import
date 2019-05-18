@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_BusBrake.ogg-97160f436bd4ced60762849778481225.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/SFX_BusBrake.ogg"
+dest_files=[ "res://.import/SFX_BusBrake.ogg-97160f436bd4ced60762849778481225.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

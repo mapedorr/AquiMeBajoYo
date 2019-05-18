@@ -27,3 +27,6 @@ smoothing_enabled = true
 drag_margin_left = 0.3
 drag_margin_right = 0.3
 
+[node name="Listener" type="Listener" parent="."]
+current = true
+

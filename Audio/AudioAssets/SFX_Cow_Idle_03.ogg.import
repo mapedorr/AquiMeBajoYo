@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Cow_Idle_03.ogg-4a8e57e220bfcafd6f74e67a08b51497.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/SFX_Cow_Idle_03.ogg"
+dest_files=[ "res://.import/SFX_Cow_Idle_03.ogg-4a8e57e220bfcafd6f74e67a08b51497.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
