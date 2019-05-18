@@ -3,6 +3,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Doors.hide()
+	$Display/AnimationPlayer.play("Pass")
 
 func initialize(travel_time, doors_time):
 	$Travel/Progress.max_value = travel_time
