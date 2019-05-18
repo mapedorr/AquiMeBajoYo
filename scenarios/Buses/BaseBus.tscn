@@ -7,9 +7,7 @@
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
-
-[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=9]
+[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -384,11 +382,8 @@ friction_ration = 0.2
 max_speed = 100.0
 transference_ratio = 0.2
 
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource( 8 )
-
 [node name="BusBars" type="Sprite" parent="."]
 position = Vector2( 644, 361 )
 z_index = 1
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
