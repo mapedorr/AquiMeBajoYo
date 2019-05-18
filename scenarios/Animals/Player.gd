@@ -26,4 +26,9 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	velocity = move_and_slide(velocity)
+	#velocity = move_and_slide(velocity)
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info and collision_info.collider.is_in_group('Animals'):
+		var collision_point = collision_info.position
+		collision_info.collider.add_force(-collision_info.normal*run_speed)
+
