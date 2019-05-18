@@ -190,3 +190,4 @@ texture = ExtResource( 10 )
 [node name="Ceiling6" type="Sprite" parent="Background/Station"]
 position = Vector2( 1810, 0 )
 texture = ExtResource( 10 )
+
