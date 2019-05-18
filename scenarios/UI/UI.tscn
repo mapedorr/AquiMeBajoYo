@@ -6,12 +6,9 @@
 [ext_resource path="res://scenarios/UI/Assets/tiempo_fondo_bolas.png" type="Texture" id=4]
 [ext_resource path="res://scenarios/UI/Assets/bolas_rojas_2.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/UI/Assets/display_fondo.png" type="Texture" id=6]
-[ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=7]
-[ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=8]
+[ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=7]
+[ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=8]
 [ext_resource path="res://scenarios/UI/Assets/display_mask.png" type="Texture" id=9]
-
-[sub_resource type="CanvasItemMaterial" id=1]
-light_mode = 2
 
 [sub_resource type="Animation" id=2]
 resource_name = "Pass"
@@ -30,40 +27,41 @@ tracks/0/keys = {
 "values": [ Vector2( 1262.45, 50 ), Vector2( 460, 50 ), Vector2( 460, 50 ) ]
 }
 
-[node name="UI" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 2
+
+[node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Travel" type="Control" parent="."]
 editor/display_folded = true
-margin_left = 460.0
-margin_top = 50.0
-margin_right = 500.0
-margin_bottom = 90.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="Progress" type="TextureProgress" parent="Travel"]
-margin_right = 266.0
-margin_bottom = 22.0
+margin_left = 450.0
+margin_top = 50.0
+margin_right = 716.0
+margin_bottom = 72.0
 texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
 [node name="Doors" type="Control" parent="."]
 editor/display_folded = true
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 70.0
-margin_bottom = 70.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="Progress" type="TextureProgress" parent="Doors"]
-margin_right = 266.0
-margin_bottom = 22.0
+margin_left = 30.0
+margin_top = 33.0
+margin_right = 334.0
+margin_bottom = 87.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 
 [node name="Display" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="Background" type="TextureRect" parent="Display"]
 margin_left = 874.0
@@ -72,30 +70,32 @@ margin_right = 1264.0
 margin_bottom = 100.0
 texture = ExtResource( 6 )
 
-[node name="StopName" type="Label" parent="Display"]
-light_mask = 2
-material = SubResource( 1 )
-margin_left = 1262.45
-margin_top = 50.0
-margin_right = 1676.45
-margin_bottom = 68.0
-theme = ExtResource( 7 )
-custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
-text = "Próxima parada: XXXXXXX"
-uppercase = true
-
 [node name="Points" type="TextureRect" parent="Display"]
 margin_left = 891.0
 margin_top = 33.0
 margin_right = 1247.0
 margin_bottom = 83.0
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Display"]
 anims/Pass = SubResource( 2 )
 
+[node name="StopName" type="Label" parent="Display"]
+light_mask = 4
+material = SubResource( 1 )
+margin_left = 877.274
+margin_top = 50.0
+margin_right = 1291.28
+margin_bottom = 68.0
+theme = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
+text = "Próxima parada: XXXXXXX"
+uppercase = true
+
 [node name="Mask" type="Light2D" parent="Display"]
+light_mask = 4
 position = Vector2( 1069, 58 )
 texture = ExtResource( 9 )
 mode = 2
-range_item_cull_mask = 2
+range_item_cull_mask = 4
+
