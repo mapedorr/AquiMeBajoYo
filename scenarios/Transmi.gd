@@ -58,5 +58,13 @@ func travel_timeout():
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:
 		doors_open = true
+		var x = $Background/BackgroundAnimation.current_animation_position
+		$Background/BackgroundAnimation.set_speed_scale(0)
+	
+	if elapsed_secs == $Bus.travel_time - 3:
+		$Background/Station.show()
+		$Background/StationAnimation.play("Arrival")
+		$Background/BackgroundAnimation.set_speed_scale(0.5)
+
 	if debugging:
 		$Debug/GameTime.set_text("%02d" % secs)

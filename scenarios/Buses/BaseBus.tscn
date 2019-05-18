@@ -9,6 +9,7 @@
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
 [ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -52,9 +53,13 @@ texture = ExtResource( 3 )
 [node name="Target" type="Sprite" parent="."]
 editor/display_folded = true
 modulate = Color( 0, 1, 0.320313, 1 )
-position = Vector2( 1036.21, 39.2876 )
-scale = Vector2( 3.76241, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 926.801, 100 )
+scale = Vector2( 3.03745, 1 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Area2D" type="Area2D" parent="Target"]
 
@@ -150,8 +155,8 @@ position = Vector2( 1555.55, 551 )
 texture = ExtResource( 6 )
 
 [node name="Animals" type="Node2D" parent="."]
+editor/display_folded = true
 
-<<<<<<< HEAD
 [node name="Animal" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 1385.57, 397.375 )
 
@@ -375,3 +380,7 @@ friction_ration = 0.2
 max_speed = 100.0
 transference_ratio = 0.2
 
+[node name="BusBars" type="Sprite" parent="."]
+position = Vector2( 644, 361 )
+z_index = 1
+texture = ExtResource( 10 )

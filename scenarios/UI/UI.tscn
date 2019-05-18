@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -8,27 +8,23 @@
 [ext_resource path="res://scenarios/UI/Assets/display_fondo.png" type="Texture" id=6]
 [ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=7]
 [ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=8]
-[ext_resource path="res://scenarios/UI/Assets/display_mask.png" type="Texture" id=9]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Pass"
 length = 6.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("StopName:rect_position")
+tracks/0/path = NodePath("Control/StopName:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 5, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.307786 ),
 "update": 0,
-"values": [ Vector2( 1262.45, 50 ), Vector2( 460, 50 ), Vector2( 460, 50 ) ]
+"values": [ Vector2( 359, 16 ), Vector2( -485, 16 ), Vector2( -485, 16 ) ]
 }
-
-[sub_resource type="CanvasItemMaterial" id=1]
-light_mode = 2
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -78,24 +74,22 @@ margin_bottom = 83.0
 texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Display"]
-anims/Pass = SubResource( 2 )
+anims/Pass = SubResource( 1 )
 
-[node name="StopName" type="Label" parent="Display"]
+[node name="Control" type="Control" parent="Display"]
+margin_left = 891.803
+margin_top = 32.773
+margin_right = 1246.8
+margin_bottom = 82.773
+rect_clip_content = true
+
+[node name="StopName" type="Label" parent="Display/Control"]
 light_mask = 4
-material = SubResource( 1 )
-margin_left = 877.274
-margin_top = 50.0
-margin_right = 1291.28
-margin_bottom = 68.0
+margin_left = 359.0
+margin_top = 16.0
+margin_right = 773.006
+margin_bottom = 34.0
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
 text = "Próxima parada: XXXXXXX"
 uppercase = true
-
-[node name="Mask" type="Light2D" parent="Display"]
-light_mask = 4
-position = Vector2( 1069, 58 )
-texture = ExtResource( 9 )
-mode = 2
-range_item_cull_mask = 4
-

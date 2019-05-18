@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -7,6 +7,64 @@
 [ext_resource path="res://Audio/AudioAssets/Mx_Level1_V2.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenarios/Mx.gd" type="Script" id=6]
 [ext_resource path="res://scenarios/UI/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenarios/Assets/anden.png" type="Texture" id=8]
+[ext_resource path="res://scenarios/Assets/calle.png" type="Texture" id=9]
+[ext_resource path="res://scenarios/Assets/estacion_techo.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Platforms"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Platforms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 22 ), Vector2( -1722, 22 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Streets:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -293, 666 ), Vector2( -1118, 666 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Arrival"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Station:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( 1370, 60 ), Vector2( 0, 60 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Station:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0210735, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,11 +87,9 @@ script = ExtResource( 6 )
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
 
-[node name="Debug" type="Control" parent="."]
+[node name="Debug" type="CanvasLayer" parent="."]
 editor/display_folded = true
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+layer = 2
 
 [node name="GameTime" type="Label" parent="Debug"]
 anchor_right = 1.0
@@ -44,3 +100,93 @@ margin_bottom = 574.0
 custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
 text = "00"
 
+[node name="Background" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+
+[node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]
+autoplay = "Platforms"
+anims/Platforms = SubResource( 1 )
+
+[node name="StationAnimation" type="AnimationPlayer" parent="Background"]
+anims/Arrival = SubResource( 2 )
+
+[node name="Platforms" type="ParallaxLayer" parent="Background"]
+editor/display_folded = true
+position = Vector2( 0, 22 )
+
+[node name="Platforms" type="Sprite" parent="Background/Platforms"]
+texture = ExtResource( 8 )
+
+[node name="Platforms2" type="Sprite" parent="Background/Platforms"]
+position = Vector2( 860, 0 )
+texture = ExtResource( 8 )
+
+[node name="Platforms3" type="Sprite" parent="Background/Platforms"]
+position = Vector2( 1720, 0 )
+texture = ExtResource( 8 )
+
+[node name="Platforms4" type="Sprite" parent="Background/Platforms"]
+position = Vector2( 2580, 0 )
+texture = ExtResource( 8 )
+
+[node name="Streets" type="ParallaxLayer" parent="Background"]
+editor/display_folded = true
+position = Vector2( -293, 666 )
+motion_mirroring = Vector2( 274, 0 )
+
+[node name="Street" type="Sprite" parent="Background/Streets"]
+texture = ExtResource( 9 )
+
+[node name="Street2" type="Sprite" parent="Background/Streets"]
+position = Vector2( 548, 0 )
+texture = ExtResource( 9 )
+
+[node name="Street3" type="Sprite" parent="Background/Streets"]
+position = Vector2( 1096, 0 )
+texture = ExtResource( 9 )
+
+[node name="Street4" type="Sprite" parent="Background/Streets"]
+position = Vector2( 1644, 0 )
+texture = ExtResource( 9 )
+
+[node name="Street5" type="Sprite" parent="Background/Streets"]
+position = Vector2( 2192, 0 )
+texture = ExtResource( 9 )
+
+[node name="Street6" type="Sprite" parent="Background/Streets"]
+position = Vector2( 2742, 0 )
+texture = ExtResource( 9 )
+
+[node name="Street7" type="Sprite" parent="Background/Streets"]
+position = Vector2( 3292, 0 )
+texture = ExtResource( 9 )
+
+[node name="Station" type="ParallaxLayer" parent="Background"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1370, 60 )
+motion_offset = Vector2( 1280, 0 )
+motion_mirroring = Vector2( 181, 0 )
+
+[node name="Ceiling" type="Sprite" parent="Background/Station"]
+texture = ExtResource( 10 )
+
+[node name="Ceiling2" type="Sprite" parent="Background/Station"]
+position = Vector2( 362, 0 )
+texture = ExtResource( 10 )
+
+[node name="Ceiling3" type="Sprite" parent="Background/Station"]
+position = Vector2( 724, 0 )
+texture = ExtResource( 10 )
+
+[node name="Ceiling4" type="Sprite" parent="Background/Station"]
+position = Vector2( 1086, 0 )
+texture = ExtResource( 10 )
+
+[node name="Ceiling5" type="Sprite" parent="Background/Station"]
+position = Vector2( 1448, 0 )
+texture = ExtResource( 10 )
+
+[node name="Ceiling6" type="Sprite" parent="Background/Station"]
+position = Vector2( 1810, 0 )
+texture = ExtResource( 10 )
