@@ -42,12 +42,13 @@ editor/display_folded = true
 position = Vector2( 682.574, 310.924 )
 max_distance = 500.0
 attenuation = 1.31951
+Volume = -3.0
 RandomVolume = true
 minVolume = -4.0
 maxVolume = 1.0
 RandomPitch = true
-minPitch = -2.0
-maxPitch = 4.0
+minPitch = -3.0
+maxPitch = 6.0
 MaxOffset = 7.0
 
 [node name="Idle_01" parent="CowSounds/IdleMoo" instance=ExtResource( 6 )]

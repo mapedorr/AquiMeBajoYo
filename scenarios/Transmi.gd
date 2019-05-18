@@ -10,6 +10,8 @@ onready var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioManager/Bus_Drive.play()
+	$AudioManager/Bus_Drive/Bumps.idleMoo()
 	$Player.position = $Bus/Spawn.get_position()
 	$Bus.connect("exit_entered", self, "finish_level")
 	# Setup the timers
@@ -65,6 +67,11 @@ func travel_timeout():
 		$Background/Station.show()
 		$Background/StationAnimation.play("Arrival")
 		$Background/BackgroundAnimation.set_speed_scale(0.5)
+	
+	if elapsed_secs == $Bus.travel_time - 6:
+		$AudioManager/Bus_Drive.stop()
+		$AudioManager/Bus_Drive/Bumps.canPlay = false
+		$AudioManager/Bus_Brake.play()
 
 	if debugging:
 		$Debug/GameTime.set_text("%02d" % secs)

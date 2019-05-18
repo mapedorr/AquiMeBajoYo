@@ -4,6 +4,7 @@ export (int) var spec_weight = 3
 export (int) var wait_time = 3
 
 var idle = true
+var canPlay = true
 
 func _ready():
 	randomize()
@@ -15,4 +16,5 @@ func idleMoo():
 		$IdleMoo.playsound()
 	if idle == true:
 		yield(get_tree().create_timer(wait_time), "timeout")
-		self.idleMoo()
+		if canPlay == true:
+			self.idleMoo()

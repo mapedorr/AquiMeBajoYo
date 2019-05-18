@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -7,9 +7,8 @@
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Buses/AudioManager.gd" type="Script" id=8]
-[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=10]
+[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -369,12 +368,10 @@ position = Vector2( 874.419, 273.462 )
 [node name="Animal4" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 1122.37, 390.326 )
 
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource( 8 )
 [node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 326.5, 367.5 )
 
-[node name="Marrano" parent="Animals" instance=ExtResource( 9 )]
+[node name="Marrano" parent="Animals" instance=ExtResource( 8 )]
 position = Vector2( 754.833, 367 )
 friction_ration = 0.2
 max_speed = 100.0
@@ -383,4 +380,5 @@ transference_ratio = 0.2
 [node name="BusBars" type="Sprite" parent="."]
 position = Vector2( 644, 361 )
 z_index = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
+
