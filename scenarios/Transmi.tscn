@@ -23,7 +23,7 @@
 [ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Platforms"
+resource_name = "Streets"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Platforms:position")
@@ -37,14 +37,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 22 ), Vector2( -1722, 22 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Streets:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+
+[sub_resource type="Animation" id=3]
+resource_name = "Streets"
+length = 0.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Streets:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -293, 666 ), Vector2( -1118, 666 ) ]
@@ -81,6 +87,7 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 
 [node name="Bus" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 13 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640.5, 330 )
@@ -114,10 +121,16 @@ custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
 text = "00"
 
 [node name="Background" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+layer = 0
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]
 autoplay = "Platforms"
 anims/Platforms = SubResource( 1 )
+
+[node name="StreetsAnimation" type="AnimationPlayer" parent="Background"]
+autoplay = "Streets"
+anims/Streets = SubResource( 3 )
 
 [node name="StationAnimation" type="AnimationPlayer" parent="Background"]
 anims/Arrival = SubResource( 2 )
@@ -142,7 +155,8 @@ position = Vector2( 2580, 0 )
 texture = ExtResource( 8 )
 
 [node name="Streets" type="ParallaxLayer" parent="Background"]
-position = Vector2( -293, 666 )
+editor/display_folded = true
+position = Vector2( -664.205, 666 )
 motion_mirroring = Vector2( 274, 0 )
 
 [node name="Street" type="Sprite" parent="Background/Streets"]
@@ -162,14 +176,6 @@ texture = ExtResource( 9 )
 
 [node name="Street5" type="Sprite" parent="Background/Streets"]
 position = Vector2( 2192, 0 )
-texture = ExtResource( 9 )
-
-[node name="Street6" type="Sprite" parent="Background/Streets"]
-position = Vector2( 2742, 0 )
-texture = ExtResource( 9 )
-
-[node name="Street7" type="Sprite" parent="Background/Streets"]
-position = Vector2( 3292, 0 )
 texture = ExtResource( 9 )
 
 [node name="Station" type="ParallaxLayer" parent="Background"]

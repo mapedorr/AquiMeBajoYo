@@ -66,14 +66,18 @@ func travel_timeout():
 		print("You are a loser")
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:
+		# Open the DOORS
 		doors_open = true
 		var x = $Background/BackgroundAnimation.current_animation_position
 		$Background/BackgroundAnimation.set_speed_scale(0)
+		$Background/StreetsAnimation.set_speed_scale(0)
+		$Bus.open_doors()
 	
 	if elapsed_secs == $Bus.travel_time - 3:
 		$Background/Station.show()
 		$Background/StationAnimation.play("Arrival")
 		$Background/BackgroundAnimation.set_speed_scale(0.5)
+		$Background/StreetsAnimation.set_speed_scale(0.5)
 	
 	if elapsed_secs == $Bus.travel_time - 6:
 		$AudioManager/Bus_Drive.stop()

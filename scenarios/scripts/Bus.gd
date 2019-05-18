@@ -14,3 +14,7 @@ func _ready():
 
 func target_entered(body):
 	emit_signal("exit_entered", body)
+
+func open_doors():
+	for door in $Doors.get_children():
+		door.open()
