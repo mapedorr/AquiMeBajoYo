@@ -10,8 +10,19 @@ func _ready():
 	# Setup the timers
 	self.setup_time()
 
+func _process(delta):
+	if secs == 30:
+		$Mx.value = 0.2
+		$Mx.speedUp()
+		
+	elif secs == 15:
+		$Mx.value = 0.4
+		$Mx.speedUp()
+
 func finish_level(body):
 	if body.name == "Player":
+		$Mx.stop()
+		$Mx_Win.play()
 		print("Level finished!")
 
 func setup_time():

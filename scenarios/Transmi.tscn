@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Bus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenarios/Animals/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://custom_resources/themes/elsewhere_theme.tres" type="Theme" id=4]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/AudioAssets/Mx_Win.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/AudioAssets/Mx_Level1_V2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://scenarios/Mx.gd" type="Script" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,4 +43,12 @@ position = Vector2( 442.5, 424.5 )
 [node name="Animal2" parent="Animals" instance=ExtResource( 5 )]
 modulate = Color( 0.462745, 0.584314, 1, 1 )
 position = Vector2( 292.5, 405 )
+
+[node name="Mx_Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Mx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+script = ExtResource( 8 )
 
