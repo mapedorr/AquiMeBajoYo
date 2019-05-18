@@ -21,3 +21,4 @@ texture = ExtResource( 1 )
 [node name="Area2D" type="Area2D" parent="Target"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target/Area2D"]
+
