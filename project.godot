@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AquiMeBajo"
-run/main_scene="res://scenarios/Trasnsmi.tscn"
+run/main_scene="res://scenarios/Transmi.tscn"
 config/icon="res://icon.png"
 
 [display]
