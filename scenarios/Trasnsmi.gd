@@ -5,13 +5,13 @@ onready var elapsed_secs = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Animal.position = $Bus/Spawn.get_position()
+	$Player.position = $Bus/Spawn.get_position()
 	$Bus.connect("exit_entered", self, "finish_level")
 	# Setup the timers
 	self.setup_time()
 
 func finish_level(body):
-	if body.name == "Animal":
+	if body.name == "Player":
 		print("Level finished!")
 
 func setup_time():
