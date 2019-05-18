@@ -3,7 +3,7 @@
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Bus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenarios/Animals/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://custom_resources/themes/elsewhere_theme.tres" type="Theme" id=4]
+[ext_resource path="res://scenarios/UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Audio/AudioAssets/Mx_Win.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/AudioAssets/Mx_Level1_V2.ogg" type="AudioStream" id=7]
@@ -21,20 +21,10 @@ run_speed = 300
 [node name="Travel" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="UI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="GameTime" type="Label" parent="UI"]
-anchor_right = 1.0
-margin_left = 274.939
-margin_top = 38.6633
-margin_right = 314.939
-margin_bottom = 91.6633
-theme = ExtResource( 4 )
-text = "00"
+[node name="UI" parent="." instance=ExtResource( 4 )]
 
 [node name="Animals" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Animal" parent="Animals" instance=ExtResource( 5 )]
 modulate = Color( 0.705882, 1, 0.847059, 1 )
@@ -52,3 +42,17 @@ stream = ExtResource( 7 )
 autoplay = true
 script = ExtResource( 8 )
 
+[node name="Debug" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="GameTime" type="Label" parent="Debug"]
+anchor_right = 1.0
+margin_left = 537.895
+margin_top = 560.0
+margin_right = 513.895
+margin_bottom = 574.0
+custom_colors/font_color = Color( 0.94902, 0.054902, 0.054902, 1 )
+text = "00"

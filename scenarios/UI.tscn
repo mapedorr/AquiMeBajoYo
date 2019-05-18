@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenarios/scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://custom_resources/themes/elsewhere_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scenarios/Assets/progress-over.png" type="Texture" id=3]
+[ext_resource path="res://scenarios/Assets/progress-bar.png" type="Texture" id=4]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Travel" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 400.0
+margin_top = 10.0
+margin_right = 440.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="Travel"]
+margin_right = 193.0
+margin_bottom = 35.0
+theme = ExtResource( 2 )
+text = "Time to arrive:"
+
+[node name="Progress" type="TextureProgress" parent="Travel"]
+margin_left = 200.0
+margin_top = 10.0
+margin_right = 466.0
+margin_bottom = 32.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+
+[node name="Doors" type="Control" parent="."]
+margin_left = 400.0
+margin_top = 58.0
+margin_right = 440.0
+margin_bottom = 98.0
+
+[node name="Label" type="Label" parent="Doors"]
+margin_right = 193.0
+margin_bottom = 35.0
+theme = ExtResource( 2 )
+text = "Time to close:"
+
+[node name="Progress" type="TextureProgress" parent="Doors"]
+margin_left = 200.0
+margin_top = 10.0
+margin_right = 466.0
+margin_bottom = 32.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
