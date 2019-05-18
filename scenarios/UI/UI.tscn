@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenarios/UI/Assets/display_fondo.png" type="Texture" id=7]
 [ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=8]
 [ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=9]
+[ext_resource path="res://scenarios/Assets/uff_win.png" type="Texture" id=10]
+[ext_resource path="res://scenarios/Assets/ohnoosana.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pass"
@@ -100,4 +102,17 @@ theme = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
 text = "Próxima parada: RICAURTE"
 uppercase = true
+
+[node name="win" type="TextureButton" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+
+[node name="lose" type="TextureButton" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 11 )
+
 [connection signal="value_changed" from="Travel/Progress" to="." method="_on_Progress_value_changed"]

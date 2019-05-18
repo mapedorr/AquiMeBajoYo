@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 22 ), Vector2( -1722, 22 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Streets"
 length = 0.4
 loop = true
@@ -56,8 +56,7 @@ tracks/0/keys = {
 "values": [ Vector2( -293, 666 ), Vector2( -1118, 666 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Arrival"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Station:position")
 tracks/0/interp = 1
@@ -130,10 +129,10 @@ anims/Platforms = SubResource( 1 )
 
 [node name="StreetsAnimation" type="AnimationPlayer" parent="Background"]
 autoplay = "Streets"
-anims/Streets = SubResource( 3 )
+anims/Streets = SubResource( 2 )
 
 [node name="StationAnimation" type="AnimationPlayer" parent="Background"]
-anims/Arrival = SubResource( 2 )
+anims/Arrival = SubResource( 3 )
 
 [node name="Platforms" type="ParallaxLayer" parent="Background"]
 editor/display_folded = true
