@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scenarios/Barra.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
+[ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -139,4 +140,8 @@ position = Vector2( 1509, 555 )
 [node name="gato_bus" type="Sprite" parent="."]
 position = Vector2( 1557.55, 166 )
 texture = ExtResource( 5 )
+
+[node name="perri" type="Sprite" parent="."]
+position = Vector2( 1555.55, 551 )
+texture = ExtResource( 6 )
 
