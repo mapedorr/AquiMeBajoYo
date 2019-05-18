@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenarios/Barra.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Assets/perri.png" type="Texture" id=6]
+[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -13,22 +14,22 @@ extents = Vector2( 30.2439, 20 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 280.5 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 96, 9.00006 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 49, 7.00006 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 240, 8.00008 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 194.547, 10.0001 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 1001.5, 40.5003 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48.9993, 280.5 )
 
 [node name="Bus" type="Node2D"]
@@ -60,6 +61,7 @@ position = Vector2( 0, -9.2876 )
 shape = SubResource( 1 )
 
 [node name="BusBorders" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="Left" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( -362, 358.5 )
@@ -67,27 +69,27 @@ shape = SubResource( 2 )
 
 [node name="Top1" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 64, 111 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Top2" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( -273, 113 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Top3" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 592, 112 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Top4" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 1410, 110 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Bottom" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 638.5, 640.5 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="Right" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 1646.5, 360 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="Bars" type="Node2D" parent="."]
 editor/display_folded = true
@@ -144,4 +146,18 @@ texture = ExtResource( 5 )
 [node name="perri" type="Sprite" parent="."]
 position = Vector2( 1555.55, 551 )
 texture = ExtResource( 6 )
+
+[node name="Animals" type="Node2D" parent="."]
+
+[node name="Animal" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 427, 384 )
+
+[node name="Animal2" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 280, 455 )
+
+[node name="Animal3" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 353, 275 )
+
+[node name="Animal4" parent="Animals" instance=ExtResource( 7 )]
+position = Vector2( 221, 351 )
 
