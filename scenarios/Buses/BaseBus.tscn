@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -7,31 +7,32 @@
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=8]
-[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/AudioManager.gd" type="Script" id=8]
+[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=9]
+[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30.2439, 20 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 41.5, 280.5 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 96, 9.00006 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 49, 7.00006 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 240, 8.00008 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 194.547, 10.0001 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1001.5, 40.5003 )
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -49,7 +50,7 @@ __meta__ = {
 
 [node name="Spawn" type="Sprite" parent="."]
 modulate = Color( 1, 0.74902, 0, 1 )
-position = Vector2( -81.4395, 541.673 )
+position = Vector2( 14.8575, 539.468 )
 texture = ExtResource( 3 )
 
 [node name="Target" type="Sprite" parent="."]
@@ -75,38 +76,38 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Target/Area2D"]
 position = Vector2( 62.7826, -50 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Target/Area2D"]
 position = Vector2( -349.405, -50 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="BusBorders" type="StaticBody2D" parent="."]
 editor/display_folded = true
 
 [node name="Left" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( -362, 358.5 )
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 
 [node name="Top1" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 64, 111 )
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 
 [node name="Top2" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( -273, 113 )
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="Top3" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 592, 112 )
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 
 [node name="Top4" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 1410, 110 )
-shape = SubResource( 15 )
+shape = SubResource( 7 )
 
 [node name="Bottom" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 638.5, 640.5 )
-shape = SubResource( 16 )
+shape = SubResource( 8 )
 
 [node name="Right" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( 1646.5, 360 )
@@ -165,6 +166,7 @@ position = Vector2( 1557.55, 166 )
 texture = ExtResource( 5 )
 
 [node name="Animals" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Animal" parent="Animals" instance=ExtResource( 6 )]
 position = Vector2( 1385.57, 397.375 )
@@ -381,7 +383,6 @@ position = Vector2( 326.5, 367.5 )
 
 [node name="Marrano" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 754.833, 367 )
-
 friction_ration = 0.2
 max_speed = 100.0
 transference_ratio = 0.2
@@ -399,35 +400,37 @@ max_speed = 100.0
 transference_ratio = 0.2
 
 [node name="AudioManager" type="Node" parent="."]
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="BusBars" type="Sprite" parent="."]
 position = Vector2( 644, 361 )
 z_index = 1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Doors" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Door" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( -175, 114 )
 
-[node name="Door2" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door2" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( -80.1108, 114 )
 
-[node name="Door3" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door3" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 209.389, 114 )
 
-[node name="Door4" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door4" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 305.389, 114 )
 
-[node name="Door5" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door5" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 880, 114 )
 
-[node name="Door6" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door6" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 980, 114 )
 
-[node name="Door7" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door7" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 1076, 114 )
 
-[node name="Door8" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door8" parent="Doors" instance=ExtResource( 10 )]
 position = Vector2( 1172.5, 114 )
+
