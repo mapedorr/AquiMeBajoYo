@@ -63,6 +63,7 @@ func travel_timeout():
 	if secs == 0:
 		$Travel.stop()
 		$UI.lose()
+		$Mx.stop()
 		print("You are a loser")
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:

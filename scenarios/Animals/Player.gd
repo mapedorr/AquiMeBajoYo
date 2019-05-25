@@ -1,10 +1,13 @@
 extends KinematicBody2D
 
 export (int) var base_speed = 100
+export (int) var VxWeight 
 
 var velocity = Vector2()
 var acceleration = 10
 var run_speed = base_speed
+var canPlay = true
+
 
 var increased = 0
 
@@ -51,6 +54,19 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info and collision_info.collider.is_in_group('Animals'):
 		
+		playGoat()
 		collision_info.collider.add_force(-collision_info.normal*(run_speed+increased))
 		velocity += (velocity.normalized()+collision_info.normal)*run_speed*0.1
+		
+		
+		
 
+func playGoat():
+	if canPlay:
+		var randomNumber = randi()%100
+		if randomNumber <= VxWeight:
+			$SFX_Goat.playsound()
+			canPlay = false
+			yield(get_tree().create_timer(4), "timeout")
+			canPlay = true
+			

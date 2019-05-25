@@ -91,6 +91,7 @@ position = Vector2( 0, 13 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640.5, 330 )
 base_speed = 250
+VxWeight = 70
 
 [node name="Travel" type="Timer" parent="."]
 wait_time = 0.5
@@ -211,6 +212,7 @@ texture = ExtResource( 10 )
 script = ExtResource( 11 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
+editor/display_folded = true
 stream = ExtResource( 12 )
 volume_db = -6.0
 

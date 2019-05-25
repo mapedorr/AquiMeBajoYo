@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Goat_03.ogg-488dca5726509a4577923bb26d0af2bf.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/SFX_Goat_03.ogg"
+dest_files=[ "res://.import/SFX_Goat_03.ogg-488dca5726509a4577923bb26d0af2bf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
