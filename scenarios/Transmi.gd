@@ -33,9 +33,12 @@ func _process(delta):
 
 func finish_level(body):
 	if body.name == "Player":
+		$Player.gamerunning = false
+		$Bus/Animals.stopAnimals()
 		$Mx.stop()
 		$Mx_Win.play()
 		$Travel.stop()
+		$AudioManager/Bus_Idle.stop()
 		$UI.win()
 
 	# Check if we're debugging
@@ -62,8 +65,12 @@ func travel_timeout():
 	secs -= 1
 	if secs == 0:
 		$Travel.stop()
+		$Bus/Animals.stopAnimals()
+		$Player.gamerunning = false
 		$UI.lose()
 		$Mx.stop()
+		$AudioManager/Bus_Idle.stop()
+		$Mx_Lose.play()
 		print("You are a loser")
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:
@@ -82,7 +89,7 @@ func travel_timeout():
 	
 	if elapsed_secs == $Bus.travel_time - 6:
 		$AudioManager/Bus_Drive.stop()
-		$AudioManager/Bus_Drive/Bumps.canPlay = false
+		$AudioManager/Bus_Drive/Bumps.gamerunning = false
 		$AudioManager/Bus_Brake.play()
 
 	if debugging:

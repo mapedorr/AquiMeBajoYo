@@ -6,6 +6,7 @@ export (float) var max_speed = 500
 export (float) var slide_ratio = 0.8
 export (float) var transference_ratio = 0.8
 
+
 func _ready():
 	$CowSounds.idleMoo()
 

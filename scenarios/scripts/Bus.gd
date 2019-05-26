@@ -18,3 +18,6 @@ func target_entered(body):
 func open_doors():
 	for door in $Doors.get_children():
 		door.open()
+	
+	for doorsfx in $SFXDoors.get_children():
+		doorsfx.playsound()

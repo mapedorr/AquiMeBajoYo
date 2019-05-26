@@ -7,15 +7,17 @@ var velocity = Vector2()
 var acceleration = 10
 var run_speed = base_speed
 var canPlay = true
+var gamerunning
 
 
 var increased = 0
 
 
 func _ready():
-	pass # Replace with function body.
+	gamerunning = true
 
 func get_input():
+	
 	var local_speed = Vector2()
 	
 	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down'):
@@ -62,11 +64,12 @@ func _physics_process(delta):
 		
 
 func playGoat():
-	if canPlay:
-		var randomNumber = randi()%100
-		if randomNumber <= VxWeight:
-			$SFX_Goat.playsound()
-			canPlay = false
-			yield(get_tree().create_timer(4), "timeout")
-			canPlay = true
+	if gamerunning:
+		if canPlay:
+			var randomNumber = randi()%100
+			if randomNumber <= VxWeight:
+				$SFX_Goat.playsound()
+				canPlay = false
+				yield(get_tree().create_timer(4), "timeout")
+				canPlay = true
 			

@@ -1,26 +1,27 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenarios/Animals/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/AudioAssets/Mx_Win.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Audio/AudioAssets/Mx_Level1_V2.ogg" type="AudioStream" id=5]
-[ext_resource path="res://scenarios/Mx.gd" type="Script" id=6]
-[ext_resource path="res://scenarios/UI/UI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Assets/anden.png" type="Texture" id=8]
-[ext_resource path="res://scenarios/Assets/calle.png" type="Texture" id=9]
-[ext_resource path="res://scenarios/Assets/estacion_techo.png" type="Texture" id=10]
-[ext_resource path="res://Audio/AudioManager.gd" type="Script" id=11]
-[ext_resource path="res://Audio/AudioAssets/SFX_BusRide.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Audio/CowSound.gd" type="Script" id=13]
-[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_01.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_02.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_03.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_04.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Audio/AudioAssets/Mx_Lose.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/AudioAssets/Mx_Level1_V2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scenarios/Mx.gd" type="Script" id=7]
+[ext_resource path="res://scenarios/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenarios/Assets/anden.png" type="Texture" id=9]
+[ext_resource path="res://scenarios/Assets/calle.png" type="Texture" id=10]
+[ext_resource path="res://scenarios/Assets/estacion_techo.png" type="Texture" id=11]
+[ext_resource path="res://Audio/AudioManager.gd" type="Script" id=12]
+[ext_resource path="res://Audio/AudioAssets/SFX_BusRide.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Audio/CowSound.gd" type="Script" id=14]
+[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_01.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_02.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_03.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_04.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -99,13 +100,16 @@ wait_time = 0.5
 [node name="Mx_Win" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
-[node name="Mx" type="AudioStreamPlayer" parent="."]
+[node name="Mx_Lose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Mx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 volume_db = -5.0
 autoplay = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="UI" parent="." instance=ExtResource( 7 )]
+[node name="UI" parent="." instance=ExtResource( 8 )]
 
 [node name="Debug" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -141,19 +145,19 @@ editor/display_folded = true
 position = Vector2( 0, 22 )
 
 [node name="Platforms" type="Sprite" parent="Background/Platforms"]
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Platforms2" type="Sprite" parent="Background/Platforms"]
 position = Vector2( 860, 0 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Platforms3" type="Sprite" parent="Background/Platforms"]
 position = Vector2( 1720, 0 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Platforms4" type="Sprite" parent="Background/Platforms"]
 position = Vector2( 2580, 0 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Streets" type="ParallaxLayer" parent="Background"]
 editor/display_folded = true
@@ -161,23 +165,23 @@ position = Vector2( -664.205, 666 )
 motion_mirroring = Vector2( 274, 0 )
 
 [node name="Street" type="Sprite" parent="Background/Streets"]
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Street2" type="Sprite" parent="Background/Streets"]
 position = Vector2( 548, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Street3" type="Sprite" parent="Background/Streets"]
 position = Vector2( 1096, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Street4" type="Sprite" parent="Background/Streets"]
 position = Vector2( 1644, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Street5" type="Sprite" parent="Background/Streets"]
 position = Vector2( 2192, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Station" type="ParallaxLayer" parent="Background"]
 editor/display_folded = true
@@ -187,42 +191,42 @@ motion_offset = Vector2( 1280, 0 )
 motion_mirroring = Vector2( 181, 0 )
 
 [node name="Ceiling" type="Sprite" parent="Background/Station"]
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Ceiling2" type="Sprite" parent="Background/Station"]
 position = Vector2( 362, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Ceiling3" type="Sprite" parent="Background/Station"]
 position = Vector2( 724, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Ceiling4" type="Sprite" parent="Background/Station"]
 position = Vector2( 1086, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Ceiling5" type="Sprite" parent="Background/Station"]
 position = Vector2( 1448, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Ceiling6" type="Sprite" parent="Background/Station"]
 position = Vector2( 1810, 0 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="AudioManager" type="Node" parent="."]
-editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
 editor/display_folded = true
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -6.0
 
 [node name="Bumps" type="Node" parent="AudioManager/Bus_Drive"]
-script = ExtResource( 13 )
+editor/display_folded = true
+script = ExtResource( 14 )
 spec_weight = 80
 
-[node name="IdleMoo" parent="AudioManager/Bus_Drive/Bumps" instance=ExtResource( 14 )]
+[node name="IdleMoo" parent="AudioManager/Bus_Drive/Bumps" instance=ExtResource( 15 )]
 position = Vector2( 520, 320 )
 RandomVolume = true
 minVolume = -4.0
@@ -230,24 +234,24 @@ RandomPitch = true
 minPitch = -4.0
 maxPitch = 3.0
 
-[node name="Bump_01" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 15 )]
-stream = ExtResource( 16 )
-
-[node name="Bump_02" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 15 )]
+[node name="Bump_01" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
 stream = ExtResource( 17 )
 
-[node name="Bump_03" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 15 )]
+[node name="Bump_02" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
 stream = ExtResource( 18 )
 
-[node name="Bump_04" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 15 )]
+[node name="Bump_03" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
 stream = ExtResource( 19 )
 
-[node name="Bus_Brake" type="AudioStreamPlayer" parent="AudioManager"]
+[node name="Bump_04" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
 stream = ExtResource( 20 )
+
+[node name="Bus_Brake" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource( 21 )
 volume_db = -3.0
 
 [node name="Bus_Idle" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource( 21 )
+stream = ExtResource( 22 )
 volume_db = 3.0
 
 [connection signal="finished" from="AudioManager/Bus_Brake" to="AudioManager" method="_on_Bus_Brake_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -10,7 +10,11 @@
 [ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Audio/AudioManager.gd" type="Script" id=9]
 [ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=10]
-[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_01.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_02.ogg" type="AudioStream" id=14]
+[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -167,10 +171,11 @@ position = Vector2( 1557.55, 166 )
 texture = ExtResource( 5 )
 
 [node name="Animals" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 6 )
 
 [node name="Animal" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1385.57, 397.375 )
+position = Vector2( 1385.57, 399.375 )
 
 [node name="Animal28" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( -75.4998, 352.5 )
@@ -408,30 +413,105 @@ position = Vector2( 644, 361 )
 z_index = 1
 texture = ExtResource( 10 )
 
+[node name="SFXDoors" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="SFX_Open" parent="SFXDoors" instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( -129.125, 104.316 )
+max_distance = 1000.0
+RandomVolume = true
+minVolume = -3.0
+RandomPitch = true
+minPitch = -2.0
+maxPitch = 4.0
+
+[node name="Open_01" parent="SFXDoors/SFX_Open" instance=ExtResource( 12 )]
+stream = ExtResource( 13 )
+max_distance = 1000.0
+
+[node name="Open_02" parent="SFXDoors/SFX_Open" instance=ExtResource( 12 )]
+stream = ExtResource( 14 )
+max_distance = 1000.0
+
+[node name="SFX_Open2" parent="SFXDoors" instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 249.958, 114.398 )
+max_distance = 1000.0
+RandomVolume = true
+minVolume = -3.0
+RandomPitch = true
+minPitch = -2.0
+maxPitch = 4.0
+
+[node name="Open_01" parent="SFXDoors/SFX_Open2" instance=ExtResource( 12 )]
+stream = ExtResource( 13 )
+max_distance = 1000.0
+
+[node name="Open_02" parent="SFXDoors/SFX_Open2" instance=ExtResource( 12 )]
+stream = ExtResource( 14 )
+max_distance = 1000.0
+
+[node name="SFX_Open3" parent="SFXDoors" instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 929.485, 116.414 )
+max_distance = 1000.0
+RandomVolume = true
+minVolume = -3.0
+RandomPitch = true
+minPitch = -2.0
+maxPitch = 4.0
+
+[node name="Open_01" parent="SFXDoors/SFX_Open3" instance=ExtResource( 12 )]
+stream = ExtResource( 13 )
+max_distance = 1000.0
+
+[node name="Open_02" parent="SFXDoors/SFX_Open3" instance=ExtResource( 12 )]
+stream = ExtResource( 14 )
+max_distance = 1000.0
+
+[node name="SFX_Open4" parent="SFXDoors" instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 1119.03, 114.398 )
+max_distance = 1000.0
+RandomVolume = true
+minVolume = -3.0
+RandomPitch = true
+minPitch = -2.0
+maxPitch = 4.0
+
+[node name="Open_01" parent="SFXDoors/SFX_Open4" instance=ExtResource( 12 )]
+stream = ExtResource( 13 )
+max_distance = 1000.0
+
+[node name="Open_02" parent="SFXDoors/SFX_Open4" instance=ExtResource( 12 )]
+stream = ExtResource( 14 )
+max_distance = 1000.0
+
 [node name="Doors" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Door" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( -175, 114 )
 
-[node name="Door2" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door2" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( -80.1108, 114 )
 
-[node name="Door3" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door3" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 209.389, 114 )
 
-[node name="Door4" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door4" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 305.389, 114 )
 
-[node name="Door5" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door5" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 880, 114 )
 
-[node name="Door6" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door6" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 980, 114 )
 
-[node name="Door7" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door7" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 1076, 114 )
 
-[node name="Door8" parent="Doors" instance=ExtResource( 11 )]
+[node name="Door8" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 1172.5, 114 )
 

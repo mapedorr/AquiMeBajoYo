@@ -11,6 +11,7 @@ var gamerunning
 func _ready():
 	gamerunning = true
 	canPlay = true
+	
 
 
 
@@ -25,9 +26,10 @@ func idleMoo():
 			idleMoo()
 
 func Moo():
-	randomize()
-	var randomNumber = randi()%100
-	if randomNumber <= spec_weight+1:
-		$IdleMoo.playsound()
-	canPlay = true
+	if gamerunning:
+		randomize()
+		var randomNumber = randi()%100
+		if randomNumber <= spec_weight+1:
+			$IdleMoo.playsound()
+		canPlay = true
 	
