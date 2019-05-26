@@ -31,3 +31,6 @@ func _physics_process(delta):
 		
 func _process(delta):
 	$CowSounds/IdleMoo.transform = transform
+
+func silence():
+	$CowSounds.gamerunning = false

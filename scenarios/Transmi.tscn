@@ -101,13 +101,14 @@ stream = ExtResource( 4 )
 
 [node name="Mx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -3.0
+volume_db = -5.0
 autoplay = true
 script = ExtResource( 6 )
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
 
 [node name="Debug" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 2
 
 [node name="GameTime" type="Label" parent="Debug"]
@@ -209,6 +210,7 @@ position = Vector2( 1810, 0 )
 texture = ExtResource( 10 )
 
 [node name="AudioManager" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
@@ -219,7 +221,6 @@ volume_db = -6.0
 [node name="Bumps" type="Node" parent="AudioManager/Bus_Drive"]
 script = ExtResource( 13 )
 spec_weight = 80
-wait_time = 2
 
 [node name="IdleMoo" parent="AudioManager/Bus_Drive/Bumps" instance=ExtResource( 14 )]
 position = Vector2( 520, 320 )

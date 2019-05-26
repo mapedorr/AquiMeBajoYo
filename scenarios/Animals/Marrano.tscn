@@ -28,11 +28,12 @@ visible = true
 position = Vector2( -0.11099, 6.33339 )
 
 [node name="CowSounds" parent="." index="3"]
-spec_weight = 60
+spec_weight = 40
+max_wt = 4
 
 [node name="IdleMoo" parent="CowSounds" index="0"]
-editor/display_folded = false
-Volume = 9.0
+Volume = 12.0
+Pitch = 10.0
 
 [node name="Idle_01" parent="CowSounds/IdleMoo" index="0"]
 stream = ExtResource( 4 )

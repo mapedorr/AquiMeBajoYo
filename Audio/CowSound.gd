@@ -1,20 +1,33 @@
 extends Node
 
 export (int) var spec_weight = 3
-export (int) var wait_time = 3
+export (int) var min_wt = 3
+export (int) var max_wt = 3
 
-var idle = true
 var canPlay = true
+var wait_time
+var gamerunning
 
 func _ready():
-	randomize()
+	gamerunning = true
+	canPlay = true
+
+
 
 func idleMoo():
-	
-	var randomNumber = randi()%100
-	if randomNumber <= spec_weight:
-		$IdleMoo.playsound()
-	if idle == true:
-		yield(get_tree().create_timer(wait_time), "timeout")
+	if gamerunning:
 		if canPlay == true:
-			self.idleMoo()
+			randomize()
+			wait_time = int ((rand_range( min_wt, (max_wt+1))))
+			canPlay = false
+			yield(get_tree().create_timer(wait_time), "timeout")
+			Moo()
+			idleMoo()
+
+func Moo():
+	randomize()
+	var randomNumber = randi()%100
+	if randomNumber <= spec_weight+1:
+		$IdleMoo.playsound()
+	canPlay = true
+	
