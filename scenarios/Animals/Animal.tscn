@@ -35,8 +35,8 @@ texture = ExtResource( 3 )
 
 [node name="CowSounds" type="Node" parent="."]
 script = ExtResource( 4 )
-spec_weight = 20
-min_wt = 1
+spec_weight = 18
+min_wt = 0
 max_wt = 8
 
 [node name="IdleMoo" parent="CowSounds" instance=ExtResource( 5 )]
@@ -45,11 +45,12 @@ max_distance = 500.0
 attenuation = 1.31951
 Volume = -5.0
 RandomVolume = true
-minVolume = -4.0
+minVolume = -1.0
 maxVolume = 1.0
 RandomPitch = true
 minPitch = -4.0
 maxPitch = 5.0
+MaxOffset = 0.5
 
 [node name="Idle_01" parent="CowSounds/IdleMoo" instance=ExtResource( 6 )]
 stream = ExtResource( 7 )

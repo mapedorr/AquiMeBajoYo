@@ -11,6 +11,7 @@ var gamerunning
 func _ready():
 	gamerunning = true
 	canPlay = true
+	wait_time = int ((rand_range( min_wt, (max_wt+1))))
 	
 
 
