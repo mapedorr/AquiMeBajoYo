@@ -489,7 +489,6 @@ stream = ExtResource( 14 )
 max_distance = 1000.0
 
 [node name="Doors" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( -175, 114 )

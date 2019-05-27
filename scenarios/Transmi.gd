@@ -1,28 +1,37 @@
 extends Node2D
 
-export(bool) var debugging = false
-
 onready var secs = 0
 onready var elapsed_secs = 0
 onready var doors_open = false
 onready var _ui = $UI
 onready var win = false
+onready var started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioManager/Bus_Drive.play()
-	$AudioManager/Bus_Drive/Bumps.idleMoo()
-	$Player.position = $Bus/Spawn.get_position()
-	$Bus.connect("exit_entered", self, "finish_level")
-	# Setup the timers
-	self.setup_time()
+	# Connect signal listeners
+	$Cover/Background.connect("gui_input", self, "start")
 	$UI/lose.connect("button_down", self, 'restart')
 	$UI/win.connect("button_down", self, 'restart')
+
+func start(event):
+	if event.is_pressed():
+		$Cover/Background.hide()
+		$AudioManager/Bus_Drive.play()
+		$AudioManager/Bus_Drive/Bumps.idleMoo()
+		$Player.position = $Bus/Spawn.get_position()
+		$Bus.connect("exit_entered", self, "finish_level")
+		# Setup the timers
+		self.setup_time()
+		# Update the flag that indicates the game has started
+		started = true
 
 func restart():
 	get_tree().reload_current_scene()
 
 func _process(delta):
+	if not started:
+		return
 	if secs == 30:
 		$Mx.value = 0.2
 		$Mx.speedUp()
@@ -41,15 +50,8 @@ func finish_level(body):
 		$AudioManager/Bus_Idle.stop()
 		$UI.win()
 
-	# Check if we're debugging
-	if debugging:
-		$Debug.show()
-
-
 func setup_time():
 	secs = $Bus.travel_time + $Bus.doors_time
-	if debugging:
-		$Debug/GameTime.set_text("%02d" % secs)
 	_ui.initialize($Bus.travel_time, $Bus.doors_time)
 	# Listen signals and start the timer
 	$Travel.connect("timeout", self, "travel_timeout")
@@ -91,6 +93,3 @@ func travel_timeout():
 		$AudioManager/Bus_Drive.stop()
 		$AudioManager/Bus_Drive/Bumps.gamerunning = false
 		$AudioManager/Bus_Brake.play()
-
-	if debugging:
-		$Debug/GameTime.set_text("%02d" % secs)
