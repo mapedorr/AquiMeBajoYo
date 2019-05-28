@@ -4,43 +4,62 @@ export (int) var base_speed = 100
 export (int) var VxWeight 
 
 var velocity = Vector2()
-var acceleration = 10
 var run_speed = base_speed
 var canPlay = true
 var gamerunning
 
 
 var increased = 0
+var on_pressed = false
+var input_position = Vector2(0, 0)
 
 
 func _ready():
 	gamerunning = true
 
+func decrease_size():
+	increased += 40
+	$CollisionShape.shape.radius -= 1.0
+	if $CollisionShape.shape.radius < 10:
+		$CollisionShape.shape.radius = 10
+
+func increase_size():
+	increased = increased*0.9
+	$CollisionShape.shape.radius += 0.2
+	if increased <= 0:
+		increased = 0
+	if $CollisionShape.shape.radius >= 40:
+		$CollisionShape.shape.radius = 40
+
 func get_input():
 	
 	var local_speed = Vector2()
-	
-	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down'):
-		increased += 50
-		$CollisionShape.shape.radius -= 1.3
-		if $CollisionShape.shape.radius < 10:
-			$CollisionShape.shape.radius = 10
-	else:
-		increased = increased*0.9
-		$CollisionShape.shape.radius += 0.2
-		if increased <= 0:
-			increased = 0
-		if $CollisionShape.shape.radius >= 40:
-			$CollisionShape.shape.radius = 40
+	var moved = false or self.on_pressed
 
 	if Input.is_action_pressed('ui_right'):
 		local_speed.x += 1
+		moved = true
 	if Input.is_action_pressed('ui_left'):
 		local_speed.x -= 1
+		moved = true
 	if Input.is_action_pressed('ui_up'):
 		local_speed.y -= 1
+		moved = true
 	if Input.is_action_pressed('ui_down'):
 		local_speed.y += 1
+		moved = true
+	
+	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down'):
+		self.decrease_size()
+	elif not moved:
+		self.increase_size()
+	
+	if self.on_pressed:
+		
+		local_speed = self.input_position - self.global_position
+		if local_speed.length() < 10:
+			local_speed = Vector2(0, 0)
+	
 	
 	if local_speed.length() == 0:
 		velocity = Vector2()
@@ -59,9 +78,19 @@ func _physics_process(delta):
 		playGoat()
 		collision_info.collider.add_force(-collision_info.normal*(run_speed+increased))
 		velocity += (velocity.normalized()+collision_info.normal)*run_speed*0.1
+
+func _input(event):
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		self.on_pressed = event.pressed
+		if self.on_pressed:
+			self.decrease_size()
 		
+		if event is InputEventMouseButton:
+			input_position = $Camera2D.get_global_mouse_position()
 		
-		
+		if event is InputEventScreenTouch:
+			input_position = $Camera2D.get_canvas_transform().xform_inv(event.position)
+
 
 func playGoat():
 	if gamerunning:
