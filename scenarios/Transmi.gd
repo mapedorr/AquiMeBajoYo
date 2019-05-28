@@ -82,6 +82,7 @@ func travel_timeout():
 		$Background/BackgroundAnimation.set_speed_scale(0)
 		$Background/StreetsAnimation.set_speed_scale(0)
 		$Bus.open_doors()
+		_ui.show_station()
 	
 	if elapsed_secs == $Bus.travel_time - 3:
 		$Background/Station.show()

@@ -86,21 +86,22 @@ texture = ExtResource( 8 )
 anims/Pass = SubResource( 1 )
 
 [node name="Control" type="Control" parent="Display"]
-margin_left = 891.803
-margin_top = 32.773
-margin_right = 1246.8
-margin_bottom = 82.773
+margin_left = 891.0
+margin_top = 33.0
+margin_right = 1246.0
+margin_bottom = 83.0
 rect_clip_content = true
 
 [node name="StopName" type="Label" parent="Display/Control"]
 light_mask = 4
 margin_left = 359.0
 margin_top = 16.0
-margin_right = 773.006
+margin_right = 791.0
 margin_bottom = 34.0
 theme = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
 text = "Próxima parada: RICAURTE"
+align = 1
 uppercase = true
 
 [node name="win" type="TextureButton" parent="."]

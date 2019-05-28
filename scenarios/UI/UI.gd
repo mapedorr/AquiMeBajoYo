@@ -22,7 +22,6 @@ func update_doors_progress(magnitude = 1):
 		$Doors.show()
 	$Doors/Progress.value -= magnitude
 
-
 func win():
 	$win.show()
 
@@ -33,3 +32,7 @@ func _on_Progress_value_changed(value):
 	var bus_pos = $Travel/BusIcon.get_position()
 	$Travel/BusIcon.set_position(Vector2(bus_pos.x + bus_steps, bus_pos.y))
 
+func show_station():
+	$Display/AnimationPlayer.stop()
+	$Display/Control/StopName.set_text("RICAURTE")
+	$Display/Control/StopName.set_position(Vector2(-38.0, 16.0))

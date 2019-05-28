@@ -333,9 +333,6 @@ position = Vector2( 134.5, 339 )
 [node name="Animal68" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( -176, 211.5 )
 
-[node name="Animal69" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -91.9998, 237 )
-
 [node name="Animal24" parent="Animals" instance=ExtResource( 7 )]
 position = Vector2( 795.5, 385 )
 
@@ -489,28 +486,33 @@ stream = ExtResource( 14 )
 max_distance = 1000.0
 
 [node name="Doors" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( -175, 114 )
 
 [node name="Door2" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( -80.1108, 114 )
+is_left = false
 
 [node name="Door3" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 209.389, 114 )
 
 [node name="Door4" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 305.389, 114 )
+is_left = false
 
 [node name="Door5" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 880, 114 )
 
 [node name="Door6" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 980, 114 )
+is_left = false
 
 [node name="Door7" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 1076, 114 )
 
 [node name="Door8" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 1172.5, 114 )
+is_left = false
 
