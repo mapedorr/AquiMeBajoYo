@@ -11,6 +11,7 @@ var gamerunning
 
 var increased = 0
 var on_pressed = false
+var just_pressed = false
 var input_position = Vector2(0, 0)
 
 
@@ -20,21 +21,27 @@ func _ready():
 func decrease_size():
 	increased += 40
 	$CollisionShape.shape.radius -= 1.0
-	if $CollisionShape.shape.radius < 10:
-		$CollisionShape.shape.radius = 10
+	$Sprite.scale.x -= 0.025
+	if $CollisionShape.shape.radius < 8:
+		$CollisionShape.shape.radius = 8
+	if $Sprite.scale.x < 0.3:
+		$Sprite.scale.x = 0.3
 
 func increase_size():
 	increased = increased*0.9
-	$CollisionShape.shape.radius += 0.2
+	$CollisionShape.shape.radius += 0.15
+	$Sprite.scale.x += 0.005
 	if increased <= 0:
 		increased = 0
 	if $CollisionShape.shape.radius >= 40:
 		$CollisionShape.shape.radius = 40
+	if $Sprite.scale.x > 1.0:
+		$Sprite.scale.x = 1.0
 
-func get_input():
+func get_input(delta):
 	
 	var local_speed = Vector2()
-	var moved = false or self.on_pressed
+	var moved = false
 
 	if Input.is_action_pressed('ui_right'):
 		local_speed.x += 1
@@ -49,17 +56,19 @@ func get_input():
 		local_speed.y += 1
 		moved = true
 	
-	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down'):
+	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down') or self.just_pressed:
 		self.decrease_size()
-	elif not moved:
+	else:
 		self.increase_size()
 	
 	if self.on_pressed:
-		
 		local_speed = self.input_position - self.global_position
 		if local_speed.length() < 10:
 			local_speed = Vector2(0, 0)
 	
+	
+	if self.just_pressed:
+		self.just_pressed = false
 	
 	if local_speed.length() == 0:
 		velocity = Vector2()
@@ -70,7 +79,7 @@ func get_input():
 
 
 func _physics_process(delta):
-	get_input()
+	get_input(delta)
 	#velocity = move_and_slide(velocity)
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info and collision_info.collider.is_in_group('Animals'):
@@ -84,6 +93,7 @@ func _input(event):
 		self.on_pressed = event.pressed
 		if self.on_pressed:
 			self.decrease_size()
+			self.just_pressed = true
 		
 		if event is InputEventMouseButton:
 			input_position = $Camera2D.get_global_mouse_position()
@@ -91,6 +101,10 @@ func _input(event):
 		if event is InputEventScreenTouch:
 			input_position = $Camera2D.get_canvas_transform().xform_inv(event.position)
 
+	if event is InputEventScreenDrag:
+		input_position = $Camera2D.get_canvas_transform().xform_inv(event.position)
+	if event is InputEventMouseMotion:
+		input_position = $Camera2D.get_global_mouse_position()
 
 func playGoat():
 	if gamerunning:
