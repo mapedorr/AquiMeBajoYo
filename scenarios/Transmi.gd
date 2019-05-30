@@ -18,7 +18,6 @@ func start(event):
 	if event.is_pressed():
 		$Cover/Background.hide()
 		$AudioManager/Bus_Drive.play()
-		$AudioManager/Bus_Drive/Bumps.idleMoo()
 		$Player.position = $Bus/Spawn.get_position()
 		$Bus.connect("exit_entered", self, "finish_level")
 		# Setup the timers
@@ -91,6 +90,11 @@ func travel_timeout():
 		$Background/StreetsAnimation.set_speed_scale(0.5)
 	
 	if elapsed_secs == $Bus.travel_time - 6:
+		$AudioManager/SFX_PP.play()
+		$Mx.set_volume_db(-10)
 		$AudioManager/Bus_Drive.stop()
-		$AudioManager/Bus_Drive/Bumps.gamerunning = false
 		$AudioManager/Bus_Brake.play()
+
+
+func _on_SFX_PP_finished():
+	$Mx.set_volume_db(-5)

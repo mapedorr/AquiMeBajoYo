@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_ProximaParada.ogg-04338fddb1fd85c709811a7cfe6e7f14.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/SFX_ProximaParada.ogg"
+dest_files=[ "res://.import/SFX_ProximaParada.ogg-04338fddb1fd85c709811a7cfe6e7f14.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

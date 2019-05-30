@@ -6,14 +6,11 @@ var canplay
 
 export (float) var minOffset = 0
 export (float) var MaxOffset = 0
-#func _process(delta):
-#	if Input.is_action_pressed("ui_right"):
-#		if canplay == true:
-#			playsound()
-#			canplay = false
-#	if Input.is_action_just_released("ui_right"):
-#		canplay = true
 
+func _ready():
+	randomize()
+	index_sound = randi()%get_child_count()
+	select_sound = get_child(index_sound)
 
 
 func playsound():

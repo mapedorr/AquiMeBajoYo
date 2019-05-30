@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -13,16 +13,10 @@
 [ext_resource path="res://scenarios/Assets/estacion_techo.png" type="Texture" id=11]
 [ext_resource path="res://Audio/AudioManager.gd" type="Script" id=12]
 [ext_resource path="res://Audio/AudioAssets/SFX_BusRide.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Audio/CowSound.gd" type="Script" id=14]
-[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_01.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_02.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_03.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_04.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=22]
-[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=23]
+[ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Audio/AudioAssets/SFX_ProximaParada.ogg" type="AudioStream" id=16]
+[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -201,55 +195,32 @@ position = Vector2( 1810, 0 )
 texture = ExtResource( 11 )
 
 [node name="AudioManager" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
-editor/display_folded = true
 stream = ExtResource( 13 )
 volume_db = -6.0
 
-[node name="Bumps" type="Node" parent="AudioManager/Bus_Drive"]
-editor/display_folded = true
-script = ExtResource( 14 )
-spec_weight = 80
-
-[node name="IdleMoo" parent="AudioManager/Bus_Drive/Bumps" instance=ExtResource( 15 )]
-position = Vector2( 520, 320 )
-RandomVolume = true
-minVolume = -4.0
-RandomPitch = true
-minPitch = -4.0
-maxPitch = 3.0
-
-[node name="Bump_01" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
-stream = ExtResource( 17 )
-
-[node name="Bump_02" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
-stream = ExtResource( 18 )
-
-[node name="Bump_03" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
-stream = ExtResource( 19 )
-
-[node name="Bump_04" parent="AudioManager/Bus_Drive/Bumps/IdleMoo" instance=ExtResource( 16 )]
-stream = ExtResource( 20 )
-
 [node name="Bus_Brake" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource( 21 )
+stream = ExtResource( 14 )
 volume_db = -3.0
 
 [node name="Bus_Idle" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource( 22 )
+stream = ExtResource( 15 )
 volume_db = 3.0
 
+[node name="SFX_PP" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource( 16 )
+volume_db = 2.0
+
 [node name="Cover" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Background" type="TextureRect" parent="Cover"]
 margin_right = 1280.0
 margin_bottom = 720.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-texture = ExtResource( 23 )
+texture = ExtResource( 17 )
 
 [connection signal="finished" from="AudioManager/Bus_Brake" to="AudioManager" method="_on_Bus_Brake_finished"]
+[connection signal="finished" from="AudioManager/SFX_PP" to="." method="_on_SFX_PP_finished"]
