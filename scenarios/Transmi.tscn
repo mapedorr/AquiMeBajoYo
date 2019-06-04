@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Audio/AudioAssets/SFX_ProximaParada.ogg" type="AudioStream" id=16]
 [ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=17]
+[ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=18]
+[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -78,8 +80,19 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 640.286 ]
+}
 
 [node name="Bus" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 13 )
@@ -215,12 +228,23 @@ volume_db = 2.0
 
 [node name="Cover" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="Cover"]
+[node name="AnimatedSplash" type="AnimatedSprite" parent="Cover"]
+frames = SubResource( 4 )
+playing = true
+centered = false
+
+[node name="Background" type="Control" parent="Cover"]
 margin_right = 1280.0
-margin_bottom = 720.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-texture = ExtResource( 17 )
+margin_bottom = 723.0
+
+[node name="Description" type="Label" parent="Cover"]
+margin_left = 469.64
+margin_top = 671.595
+margin_right = 811.64
+margin_bottom = 689.595
+custom_fonts/font = ExtResource( 19 )
+custom_colors/font_color = Color( 1, 0.894118, 0.388235, 1 )
+text = "Haz clic para jugar"
 
 [connection signal="finished" from="AudioManager/Bus_Brake" to="AudioManager" method="_on_Bus_Brake_finished"]
 [connection signal="finished" from="AudioManager/SFX_PP" to="." method="_on_SFX_PP_finished"]

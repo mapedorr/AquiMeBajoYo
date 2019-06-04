@@ -13,10 +13,17 @@ func _ready():
 	$Cover/Background.connect("gui_input", self, "start")
 	$UI/lose.connect("button_down", self, 'restart')
 	$UI/win.connect("button_down", self, 'restart')
+	var action_to_start = "clic"
+	if OS.has_touchscreen_ui_hint():
+		action_to_start = "tap"
+	$Cover/Description.text = "Haz " + action_to_start + " para jugar"
 
 func start(event):
 	if event.is_pressed():
+		$Cover/AnimatedSplash.hide()
 		$Cover/Background.hide()
+		$Cover/Description.hide()
+		
 		$AudioManager/Bus_Drive.play()
 		$Player.position = $Bus/Spawn.get_position()
 		$Bus.connect("exit_entered", self, "finish_level")
