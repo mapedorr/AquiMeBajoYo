@@ -11,8 +11,8 @@ onready var started = false
 func _ready():
 	# Connect signal listeners
 	$Cover/Background.connect("gui_input", self, "start")
-	$UI/lose.connect("button_down", self, 'restart')
-	$UI/win.connect("button_down", self, 'restart')
+	$UI/lose.connect("gui_input", self, 'restart')
+	$UI/win.connect("gui_input", self, 'restart')
 	var action_to_start = "clic"
 	if OS.has_touchscreen_ui_hint():
 		action_to_start = "tap"
@@ -32,8 +32,9 @@ func start(event):
 		# Update the flag that indicates the game has started
 		started = true
 
-func restart():
-	get_tree().reload_current_scene()
+func restart(event):
+	if event.is_pressed():
+		get_tree().reload_current_scene()
 
 func _process(delta):
 	if not started:

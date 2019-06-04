@@ -565,7 +565,7 @@ anims/Ride = SubResource( 10 )
 [node name="SFX_Bumps" parent="." instance=ExtResource( 11 )]
 position = Vector2( 554.532, 366.446 )
 max_distance = 8000.0
-attenuation = 1.32836e-05
+attenuation = 1.32836e-005
 Volume = -9.0
 RandomVolume = true
 minVolume = -1.0

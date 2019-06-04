@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -120,7 +120,6 @@ script = ExtResource( 7 )
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
 [node name="Background" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 layer = 0
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]

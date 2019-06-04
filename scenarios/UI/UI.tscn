@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -10,7 +10,10 @@
 [ext_resource path="res://scenarios/UI/Assets/bolas_display.png" type="Texture" id=8]
 [ext_resource path="res://custom_resources/themes/PressStart2P.tres" type="Theme" id=9]
 [ext_resource path="res://scenarios/Assets/uff_win.png" type="Texture" id=10]
-[ext_resource path="res://scenarios/Assets/ohnoosana.png" type="Texture" id=11]
+[ext_resource path="res://scenarios/Assets/ohno_lost.png" type="Texture" id=11]
+[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=12]
+[ext_resource path="res://custom_resources/dynamic_fonts/Fredoka48.tres" type="DynamicFont" id=13]
+[ext_resource path="res://custom_resources/dynamic_fonts/Fredoka32.tres" type="DynamicFont" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pass"
@@ -31,6 +34,9 @@ tracks/0/keys = {
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 640.925 ]
+}
 
 [node name="Travel" type="Control" parent="."]
 margin_right = 1280.0
@@ -115,5 +121,46 @@ visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 texture_normal = ExtResource( 11 )
+
+[node name="TextLayer" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Continue" type="Label" parent="TextLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -206.0
+margin_top = 110.0
+margin_right = 208.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Haz clic para continuar"
+align = 1
+
+[node name="Legend" type="Label" parent="TextLayer"]
+margin_left = 540.864
+margin_top = 337.408
+margin_right = 975.864
+margin_bottom = 382.408
+custom_fonts/font = ExtResource( 13 )
+text = "Casi no me bajo!"
+uppercase = true
+
+[node name="Learning" type="Label" parent="TextLayer"]
+anchor_right = 1.0
+margin_left = 489.238
+margin_top = 593.742
+margin_right = -428.762
+margin_bottom = 657.742
+custom_fonts/font = ExtResource( 14 )
+text = "\"Dejar salir primero es entrar más rápido\""
+align = 2
+autowrap = true
+uppercase = true
 
 [connection signal="value_changed" from="Travel/Progress" to="." method="_on_Progress_value_changed"]

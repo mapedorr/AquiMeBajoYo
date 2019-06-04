@@ -2,11 +2,15 @@ extends CanvasLayer
 
 var bus_steps = 0
 var bus_end_pos = 744.0
-
+var action_to_start = "clic"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Doors.hide()
 	$Display/AnimationPlayer.play("Pass")
+	
+	if OS.has_touchscreen_ui_hint():
+		action_to_start = "tap"
+	
 
 func initialize(travel_time, doors_time):
 	$Travel/Progress.max_value = travel_time
@@ -23,9 +27,17 @@ func update_doors_progress(magnitude = 1):
 	$Doors/Progress.value -= magnitude
 
 func win():
+	$TextLayer/Legend.text = "Casi no me bajo!"
+	$TextLayer/Continue.text = "Haz " + action_to_start + " para continuar"
+	$TextLayer/Continue.modulate = Color("ff477d")
+	$TextLayer.show()
 	$win.show()
 
 func lose():
+	$TextLayer/Legend.text = "Se me pasó la estación"
+	$TextLayer/Continue.text = "Haz " + action_to_start + " para reintentar"
+	$TextLayer/Continue.modulate = Color("ffe36c")
+	$TextLayer.show()
 	$lose.show()
 
 func _on_Progress_value_changed(value):
