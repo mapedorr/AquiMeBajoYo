@@ -26,6 +26,7 @@ var default_level = {
 		"front": 2
 	}
 }
+var AdMob
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +39,14 @@ func _ready():
 		action_to_start = "tap"
 	$Cover/Container/Description.text = "Haz " + action_to_start + " para jugar"
 	$Mx.play()
+	# Lo de los Ads
+	var gdads = Engine.get_singleton("GodotAds")
+	# Initialize AdMob
+	AdMob = Engine.get_singleton("AdMob")
+	var _dict = Dictionary()
+	_dict["InterstitialAd"] = true
+	_dict["InterstitialAdId"] = "ca-app-pub-3940256099942544/1033173712"
+	AdMob.init(_dict, get_instance_id())
 	$AnimationPlayer.connect("animation_finished", self, "enable_start")
 
 func enable_start(animation):
@@ -152,6 +161,7 @@ func finish_level(body = null):
 	else:
 		$Mx_Lose.play()
 		$UI.lose()
+	AdMob.show_interstitial_ad()
 
 
 func setup_time():
