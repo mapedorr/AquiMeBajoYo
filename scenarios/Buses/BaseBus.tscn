@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -6,20 +6,18 @@
 [ext_resource path="res://scenarios/Barra.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenarios/Assets/gato_bus.png" type="Texture" id=5]
 [ext_resource path="res://scenarios/Buses/Animals.gd" type="Script" id=6]
-[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Audio/AudioManager.gd" type="Script" id=9]
-[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=10]
-[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_01.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_02.ogg" type="AudioStream" id=14]
-[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Audio/SoundObject_ST.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_01.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_02.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_03.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bump_04.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/AudioManager.gd" type="Script" id=7]
+[ext_resource path="res://scenarios/Assets/barras.png" type="Texture" id=8]
+[ext_resource path="res://Audio/RandomTool.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/SoundObject.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_01.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/AudioAssets/SFX_DoorOpen_02.ogg" type="AudioStream" id=12]
+[ext_resource path="res://scenarios/Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Audio/SoundObject_ST.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_01.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_02.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_03.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Audio/AudioAssets/SFX_Bump_04.ogg" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2439, 20 )
@@ -82,6 +80,27 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 328, 195 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 220, 214 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 345, 225 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 370, 110 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 178, 208 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 177, 143 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 145, 208 )
+
 [node name="Bus" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -94,7 +113,7 @@ __meta__ = {
 
 [node name="Spawn" type="Sprite" parent="."]
 modulate = Color( 1, 0.74902, 0, 1 )
-position = Vector2( 14.8575, 539.468 )
+position = Vector2( 15, 540 )
 texture = ExtResource( 3 )
 
 [node name="Target" type="Sprite" parent="."]
@@ -128,6 +147,10 @@ shape = SubResource( 2 )
 
 [node name="BusBorders" type="StaticBody2D" parent="."]
 editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Left" type="CollisionShape2D" parent="BusBorders"]
 position = Vector2( -362, 358.5 )
@@ -159,6 +182,10 @@ shape = SubResource( 9 )
 
 [node name="Bars" type="Node2D" parent="."]
 editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Barra1" parent="Bars" instance=ExtResource( 4 )]
 position = Vector2( -219, 165 )
@@ -210,252 +237,20 @@ position = Vector2( 1557.55, 166 )
 texture = ExtResource( 5 )
 
 [node name="Animals" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 6 )
 
-[node name="Animal" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1385.57, 399.375 )
-
-[node name="Animal28" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -65.476, 369.684 )
-
-[node name="Animal61" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 18.7961, 175.02 )
-
-[node name="Animal63" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -246.5, 315 )
-
-[node name="Animal36" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 773.146, 382.5 )
-
-[node name="Animal43" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1383.94, 502.177 )
-
-[node name="Animal49" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1351.95, 177.544 )
-
-[node name="Animal55" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 636.524, 337.224 )
-
-[node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 326.5, 367.5 )
-
-[node name="Animal29" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -144.908, 303.884 )
-
-[node name="Animal42" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1168, 327 )
-
-[node name="Animal48" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1271.5, 172.5 )
-
-[node name="Animal59" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 526, 346.5 )
-
-[node name="Animal6" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 199.201, 263.796 )
-
-[node name="Animal7" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 185.908, 451.228 )
-
-[node name="Animal8" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 205.272, 536.112 )
-rotation = -3.42783
-
-[node name="Animal9" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 353.09, 533.38 )
-rotation = -3.42783
-
-[node name="Animal10" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 385, 454.5 )
-
-[node name="Animal31" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -115.047, 445.299 )
-
-[node name="Animal35" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 850, 453 )
-
-[node name="Animal44" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1253.84, 477.612 )
-
-[node name="Animal46" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1330, 259.5 )
-
-[node name="Animal58" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 584.5, 433.5 )
-
-[node name="Animal11" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 452.5, 279 )
-
-[node name="Animal12" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 481, 462 )
-
-[node name="Animal30" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -275, 433.5 )
-
-[node name="Animal38" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 921.656, 527.803 )
-
-[node name="Animal41" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1248.93, 379.837 )
-
-[node name="Animal50" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1513, 342 )
-rotation = 1.71391
-
-[node name="Animal54" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 687.66, 531.214 )
-
-[node name="Animal20" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1034, 560.5 )
-
-[node name="Animal13" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 428.5, 366 )
-
-[node name="Animal32" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 33.8642, 377.456 )
-
-[node name="Animal39" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 560.231, 537.952 )
-
-[node name="Animal60" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 113.296, 180.408 )
-
-[node name="Animal62" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 220, 366 )
-
-[node name="Animal34" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 986.5, 375 )
-
-[node name="Animal40" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 894.044, 365.037 )
-
-[node name="Animal51" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1466.5, 181.5 )
-
-[node name="Animal21" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1017.22, 467.84 )
-
-[node name="Animal14" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 636.738, 252.065 )
-
-[node name="Animal23" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1089.5, 383.5 )
-
-[node name="Animal15" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 523, 189 )
-
-[node name="Animal22" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 969.5, 244 )
-
-[node name="Animal16" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 395.5, 175.5 )
-
-[node name="Animal26" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1076, 172 )
-
-[node name="Animal17" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -275.272, 188.997 )
-
-[node name="Animal64" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -264.5, 538.5 )
-rotation = -2.57087
-
-[node name="Animal65" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -177.5, 543 )
-rotation = -4.28478
-
-[node name="Animal66" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 104.5, 537 )
-rotation = -3.42783
-
-[node name="Animal67" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 134.5, 339 )
-
-[node name="Animal68" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -176, 211.5 )
-
-[node name="Animal24" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 726.765, 284.762 )
-
-[node name="Animal18" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 295, 174 )
-
-[node name="Animal25" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 783.561, 166.534 )
-
-[node name="Animal53" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 102.5, 446.5 )
-
-[node name="Animal19" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 283.895, 455.827 )
-
-[node name="Animal27" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 697.173, 179.218 )
-
-[node name="Animal52" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -15.9998, 463 )
-
-[node name="Animal70" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 80.0001, 266.5 )
-
-[node name="Animal2" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1247.47, 247.355 )
-
-[node name="Animal33" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( -182.812, 379.307 )
-
-[node name="Animal37" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 775.072, 535.122 )
-
-[node name="Animal45" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1133.84, 455.755 )
-
-[node name="Animal47" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1067.77, 290.276 )
-
-[node name="Animal57" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 358, 279.5 )
-
-[node name="Animal3" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 898.419, 160.962 )
-
-[node name="Animal4" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 1143.37, 549.326 )
-
-[node name="Animal5" parent="Animals" instance=ExtResource( 7 )]
-position = Vector2( 276.098, 291.251 )
-
-[node name="Marrano" parent="Animals" instance=ExtResource( 8 )]
-position = Vector2( 704.714, 442.895 )
-friction_ration = 0.2
-max_speed = 100.0
-transference_ratio = 0.2
-
-[node name="Marrano3" parent="Animals" instance=ExtResource( 8 )]
-position = Vector2( 831.323, 294.18 )
-friction_ration = 0.2
-max_speed = 100.0
-transference_ratio = 0.2
-
-[node name="Marrano2" parent="Animals" instance=ExtResource( 8 )]
-position = Vector2( -39.9659, 281.704 )
-friction_ration = 0.2
-max_speed = 100.0
-transference_ratio = 0.2
-
 [node name="AudioManager" type="Node" parent="."]
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 
 [node name="BusBars" type="Sprite" parent="."]
 position = Vector2( 644, 361 )
 z_index = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 
 [node name="SFXDoors" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="SFX_Open" parent="SFXDoors" instance=ExtResource( 11 )]
+[node name="SFX_Open" parent="SFXDoors" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -129.125, 104.316 )
 max_distance = 1000.0
@@ -465,15 +260,15 @@ RandomPitch = true
 minPitch = -2.0
 maxPitch = 4.0
 
-[node name="Open_01" parent="SFXDoors/SFX_Open" instance=ExtResource( 12 )]
-stream = ExtResource( 13 )
+[node name="Open_01" parent="SFXDoors/SFX_Open" instance=ExtResource( 10 )]
+stream = ExtResource( 11 )
 max_distance = 1000.0
 
-[node name="Open_02" parent="SFXDoors/SFX_Open" instance=ExtResource( 12 )]
-stream = ExtResource( 14 )
+[node name="Open_02" parent="SFXDoors/SFX_Open" instance=ExtResource( 10 )]
+stream = ExtResource( 12 )
 max_distance = 1000.0
 
-[node name="SFX_Open2" parent="SFXDoors" instance=ExtResource( 11 )]
+[node name="SFX_Open2" parent="SFXDoors" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 249.958, 114.398 )
 max_distance = 1000.0
@@ -483,15 +278,15 @@ RandomPitch = true
 minPitch = -2.0
 maxPitch = 4.0
 
-[node name="Open_01" parent="SFXDoors/SFX_Open2" instance=ExtResource( 12 )]
-stream = ExtResource( 13 )
+[node name="Open_01" parent="SFXDoors/SFX_Open2" instance=ExtResource( 10 )]
+stream = ExtResource( 11 )
 max_distance = 1000.0
 
-[node name="Open_02" parent="SFXDoors/SFX_Open2" instance=ExtResource( 12 )]
-stream = ExtResource( 14 )
+[node name="Open_02" parent="SFXDoors/SFX_Open2" instance=ExtResource( 10 )]
+stream = ExtResource( 12 )
 max_distance = 1000.0
 
-[node name="SFX_Open3" parent="SFXDoors" instance=ExtResource( 11 )]
+[node name="SFX_Open3" parent="SFXDoors" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 929.485, 116.414 )
 max_distance = 1000.0
@@ -501,15 +296,15 @@ RandomPitch = true
 minPitch = -2.0
 maxPitch = 4.0
 
-[node name="Open_01" parent="SFXDoors/SFX_Open3" instance=ExtResource( 12 )]
-stream = ExtResource( 13 )
+[node name="Open_01" parent="SFXDoors/SFX_Open3" instance=ExtResource( 10 )]
+stream = ExtResource( 11 )
 max_distance = 1000.0
 
-[node name="Open_02" parent="SFXDoors/SFX_Open3" instance=ExtResource( 12 )]
-stream = ExtResource( 14 )
+[node name="Open_02" parent="SFXDoors/SFX_Open3" instance=ExtResource( 10 )]
+stream = ExtResource( 12 )
 max_distance = 1000.0
 
-[node name="SFX_Open4" parent="SFXDoors" instance=ExtResource( 11 )]
+[node name="SFX_Open4" parent="SFXDoors" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 1119.03, 114.398 )
 max_distance = 1000.0
@@ -519,42 +314,42 @@ RandomPitch = true
 minPitch = -2.0
 maxPitch = 4.0
 
-[node name="Open_01" parent="SFXDoors/SFX_Open4" instance=ExtResource( 12 )]
-stream = ExtResource( 13 )
+[node name="Open_01" parent="SFXDoors/SFX_Open4" instance=ExtResource( 10 )]
+stream = ExtResource( 11 )
 max_distance = 1000.0
 
-[node name="Open_02" parent="SFXDoors/SFX_Open4" instance=ExtResource( 12 )]
-stream = ExtResource( 14 )
+[node name="Open_02" parent="SFXDoors/SFX_Open4" instance=ExtResource( 10 )]
+stream = ExtResource( 12 )
 max_distance = 1000.0
 
 [node name="Doors" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Door" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( -175, 114 )
 
-[node name="Door2" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door2" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( -80.1108, 114 )
 is_left = false
 
-[node name="Door3" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door3" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 209.389, 114 )
 
-[node name="Door4" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door4" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 305.389, 114 )
 is_left = false
 
-[node name="Door5" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door5" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 880, 114 )
 
-[node name="Door6" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door6" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 980, 114 )
 is_left = false
 
-[node name="Door7" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door7" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 1076, 114 )
 
-[node name="Door8" parent="Doors" instance=ExtResource( 15 )]
+[node name="Door8" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( 1172.5, 114 )
 is_left = false
 
@@ -562,7 +357,7 @@ is_left = false
 autoplay = "Ride"
 anims/Ride = SubResource( 10 )
 
-[node name="SFX_Bumps" parent="." instance=ExtResource( 11 )]
+[node name="SFX_Bumps" parent="." instance=ExtResource( 9 )]
 position = Vector2( 554.532, 366.446 )
 max_distance = 8000.0
 attenuation = 1.32836e-005
@@ -574,15 +369,54 @@ RandomPitch = true
 minPitch = -3.0
 maxPitch = 1.0
 
-[node name="Bump" parent="SFX_Bumps" instance=ExtResource( 16 )]
+[node name="Bump" parent="SFX_Bumps" instance=ExtResource( 14 )]
+stream = ExtResource( 15 )
+
+[node name="Bump2" parent="SFX_Bumps" instance=ExtResource( 14 )]
+stream = ExtResource( 16 )
+
+[node name="Bump3" parent="SFX_Bumps" instance=ExtResource( 14 )]
 stream = ExtResource( 17 )
 
-[node name="Bump2" parent="SFX_Bumps" instance=ExtResource( 16 )]
+[node name="Bump4" parent="SFX_Bumps" instance=ExtResource( 14 )]
 stream = ExtResource( 18 )
 
-[node name="Bump3" parent="SFX_Bumps" instance=ExtResource( 16 )]
-stream = ExtResource( 19 )
+[node name="areas" type="Node2D" parent="."]
 
-[node name="Bump4" parent="SFX_Bumps" instance=ExtResource( 16 )]
-stream = ExtResource( 20 )
+[node name="back" type="CollisionShape2D" parent="areas"]
+position = Vector2( 35, 385 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="center" type="CollisionShape2D" parent="areas"]
+position = Vector2( 595, 369 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="front" type="CollisionShape2D" parent="areas"]
+position = Vector2( 1198, 364 )
+shape = SubResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spawnBack" type="CollisionShape2D" parent="areas"]
+position = Vector2( 65, 460 )
+shape = SubResource( 14 )
+
+[node name="spawnCenter" type="CollisionShape2D" parent="areas"]
+position = Vector2( 645, 358 )
+shape = SubResource( 15 )
+
+[node name="spawnFrontDoor" type="CollisionShape2D" parent="areas"]
+position = Vector2( 1020, 425 )
+shape = SubResource( 16 )
+
+[node name="spawnFront" type="CollisionShape2D" parent="areas"]
+position = Vector2( 1425, 370 )
+shape = SubResource( 17 )
 

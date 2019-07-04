@@ -23,7 +23,7 @@ func _physics_process(delta):
 	velocity = velocity*friction_ration
 	var collision_info = move_and_collide(velocity*delta)
 	if collision_info and collision_info.collider.is_in_group('Animals'):
-		var collision_point = collision_info.position
+		#var collision_point = collision_info.position
 		collision_info.collider.add_force(-collision_info.normal*velocity.length()*transference_ratio)
 		add_force((velocity.normalized()+collision_info.normal)*velocity.length()*slide_ratio)
 

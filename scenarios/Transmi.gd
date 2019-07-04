@@ -4,8 +4,25 @@ onready var secs = 0
 onready var elapsed_secs = 0
 onready var doors_open = false
 onready var _ui = $UI
-onready var win = false
 onready var started = false
+
+var Levels = preload("res://levels.gd")
+
+var default_level = {
+	"travel_time": 20,
+	"doors_time": 30,
+	"spawn_area": "spawnCenter",
+	"vacas": {
+		"back": 1,
+		"center": 2,
+		"front": 1
+	},
+	"marranos": {
+		"back": 2,
+		"center": 0,
+		"front": 2
+	}
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +35,7 @@ func _ready():
 		action_to_start = "tap"
 	$Cover/Description.text = "Haz " + action_to_start + " para jugar"
 
+
 func start(event):
 	if event.is_pressed():
 		$Cover/AnimatedSplash.hide()
@@ -25,6 +43,8 @@ func start(event):
 		$Cover/Description.hide()
 		
 		$AudioManager/Bus_Drive.play()
+		var level = Levels.get_random_station()
+		$Bus.load_level(level)
 		$Player.position = $Bus/Spawn.get_position()
 		$Bus.connect("exit_entered", self, "finish_level")
 		# Setup the timers
@@ -85,7 +105,7 @@ func travel_timeout():
 	if elapsed_secs == $Bus.travel_time:
 		# Open the DOORS
 		doors_open = true
-		var x = $Background/BackgroundAnimation.current_animation_position
+		#var x = $Background/BackgroundAnimation.current_animation_position
 		$Background/BackgroundAnimation.set_speed_scale(0)
 		$Background/StreetsAnimation.set_speed_scale(0)
 		$Bus.open_doors()
