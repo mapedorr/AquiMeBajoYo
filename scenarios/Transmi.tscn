@@ -114,12 +114,12 @@ stream = ExtResource( 5 )
 [node name="Mx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.0
-autoplay = true
 script = ExtResource( 7 )
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
 
 [node name="Background" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 layer = 0
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]
@@ -229,7 +229,6 @@ editor/display_folded = true
 
 [node name="AnimatedSplash" type="AnimatedSprite" parent="Cover"]
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 

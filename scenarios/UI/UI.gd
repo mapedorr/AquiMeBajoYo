@@ -8,11 +8,9 @@ onready var bus_icon_origin = $Travel/BusIcon.get_position()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Doors.hide()
-	$Display/AnimationPlayer.play("Pass")
-	
+
 	if OS.has_touchscreen_ui_hint():
 		action_to_start = "tap"
-	
 
 func initialize(travel_time, doors_time):
 	$Travel/Progress.max_value = travel_time
@@ -55,6 +53,10 @@ func restart():
 	$win.hide()
 	$lose.hide()
 	$TextLayer.hide()
+	$Doors.hide()
+
 	$Display/AnimationPlayer.stop(true)
+	$Display/AnimationPlayer.seek(0.0, true)
 	$Travel/Progress.value = 0
 	$Travel/BusIcon.set_position(bus_icon_origin)
+	$Display/Control/StopName.set_text("Próxima parada: RICAURTE")

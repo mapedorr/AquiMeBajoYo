@@ -323,6 +323,7 @@ stream = ExtResource( 12 )
 max_distance = 1000.0
 
 [node name="Doors" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Door" parent="Doors" instance=ExtResource( 13 )]
 position = Vector2( -175, 114 )
@@ -353,7 +354,6 @@ position = Vector2( 1172.5, 114 )
 is_left = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Ride"
 anims/Ride = SubResource( 10 )
 
 [node name="SFX_Bumps" parent="." instance=ExtResource( 9 )]

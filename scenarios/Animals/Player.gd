@@ -41,21 +41,16 @@ func increase_size():
 func get_input(delta):
 	
 	var local_speed = Vector2()
-	var moved = false
 
 	if Input.is_action_pressed('ui_right'):
 		local_speed.x += 1
-		moved = true
 	if Input.is_action_pressed('ui_left'):
 		local_speed.x -= 1
-		moved = true
 	if Input.is_action_pressed('ui_up'):
 		local_speed.y -= 1
-		moved = true
 	if Input.is_action_pressed('ui_down'):
 		local_speed.y += 1
-		moved = true
-	
+
 	if Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_down') or self.just_pressed:
 		self.decrease_size()
 	else:
