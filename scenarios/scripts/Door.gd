@@ -13,3 +13,8 @@ func open_left():
 
 func open_right():
 	$AnimationPlayer.play("OpenRight")
+
+func close():
+	print("¡Cerrada!")
+	$AnimationPlayer.stop()
+	$AnimationPlayer.seek(0.0, true)

@@ -3,6 +3,8 @@ extends CanvasLayer
 var bus_steps = 0
 var bus_end_pos = 744.0
 var action_to_start = "clic"
+onready var bus_icon_origin = $Travel/BusIcon.get_position()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Doors.hide()
@@ -48,3 +50,11 @@ func show_station():
 	$Display/AnimationPlayer.stop()
 	$Display/Control/StopName.set_text("RICAURTE")
 	$Display/Control/StopName.set_position(Vector2(-38.0, 16.0))
+
+func restart():
+	$win.hide()
+	$lose.hide()
+	$TextLayer.hide()
+	$Display/AnimationPlayer.stop(true)
+	$Travel/Progress.value = 0
+	$Travel/BusIcon.set_position(bus_icon_origin)

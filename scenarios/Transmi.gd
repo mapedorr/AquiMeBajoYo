@@ -42,6 +42,8 @@ func start(event):
 		$Cover/Background.hide()
 		$Cover/Description.hide()
 		
+		$Background/BackgroundAnimation.play("Platforms")
+		$Background/StreetsAnimation.play("Streets")
 		$AudioManager/Bus_Drive.play()
 		var level = Levels.get_random_station()
 		$Bus.load_level(level)
@@ -54,7 +56,30 @@ func start(event):
 
 func restart(event):
 	if event.is_pressed():
-		get_tree().reload_current_scene()
+		# get_tree().reload_current_scene()
+		# ---------------------------------
+		# Set variables to their default value
+		elapsed_secs = 0
+		secs = 0
+		doors_open = false
+		win = false
+		started = false
+		$Travel.disconnect("timeout", self, "travel_timeout")
+		# Set animations to their default state
+		$Background/Station.hide()
+		$Background/BackgroundAnimation.stop()
+		$Background/StreetsAnimation.stop()
+		$Background/StationAnimation.stop()
+		$Background/BackgroundAnimation.set_speed_scale(1.0)
+		$Background/StreetsAnimation.set_speed_scale(1.0)
+		$Bus.close_doors()
+		# Show the start screen
+		$Cover/AnimatedSplash.show()
+		$Cover/Background.show()
+		$Cover/Description.show()
+		# Stop the level and set it to its default state
+		$AudioManager/Bus_Drive.stop()
+		_ui.restart()
 
 func _process(delta):
 	if not started:
@@ -100,7 +125,7 @@ func travel_timeout():
 		$Mx.stop()
 		$AudioManager/Bus_Idle.stop()
 		$Mx_Lose.play()
-		print("You are a loser")
+
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:
 		# Open the DOORS

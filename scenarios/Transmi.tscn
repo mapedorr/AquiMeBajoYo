@@ -123,11 +123,9 @@ script = ExtResource( 7 )
 layer = 0
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="Background"]
-autoplay = "Platforms"
 anims/Platforms = SubResource( 1 )
 
 [node name="StreetsAnimation" type="AnimationPlayer" parent="Background"]
-autoplay = "Streets"
 anims/Streets = SubResource( 2 )
 
 [node name="StationAnimation" type="AnimationPlayer" parent="Background"]
@@ -207,6 +205,7 @@ position = Vector2( 1810, 0 )
 texture = ExtResource( 11 )
 
 [node name="AudioManager" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
@@ -226,9 +225,11 @@ stream = ExtResource( 16 )
 volume_db = 2.0
 
 [node name="Cover" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="AnimatedSplash" type="AnimatedSprite" parent="Cover"]
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 

@@ -79,3 +79,7 @@ func open_doors():
 	
 	for doorsfx in $SFXDoors.get_children():
 		doorsfx.playsound()
+
+func close_doors():
+	for door in $Doors.get_children():
+		door.close()
