@@ -10,20 +10,17 @@ var travel_time = 20
 # The time the bus keeps its doors opened (in segundos)
 var doors_time = 30
 var default_params = {
+	"estation": "ricaurte",
 	"travel_time": 20,
 	"doors_time": 30,
 	"spawn_area": "spawnCenter",
 	"vacas": {
-		"back": 1,
-		"center": 2,
-		"front": 1
 	},
 	"marranos": {
-		"back": 2,
-		"center": 0,
-		"front": 2
 	}
 }
+var station_name = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Spawn.hide()
@@ -31,20 +28,18 @@ func _ready():
 	self.load_level(default_params)
 
 func load_level(params):
-	
-	spanAnimal(Vaca, $areas/back, params['vacas']['back'])
-	spanAnimal(Vaca, $areas/center, params['vacas']['center'])
-	spanAnimal(Vaca, $areas/front, params['vacas']['front'])
-	spanAnimal(Marrano, $areas/back, params['marranos']['back'])
-	spanAnimal(Marrano, $areas/center, params['marranos']['center'])
-	spanAnimal(Marrano, $areas/front, params['marranos']['front'])
+	for area in params['vacas'].keys():
+		spanAnimal(Vaca, $areas.get_node(area), params['vacas'][area])
+
+	for area in params['marranos'].keys():
+		spanAnimal(Marrano, $areas.get_node(area), params['marranos'][area])
 	
 	travel_time = params['travel_time']
 	doors_time = params['doors_time']
+	station_name = params['estation']
 	
 	var areaToSpawn = $areas.get_node(params['spawn_area'])
 	$Spawn.position = getRandomPositionOnRect(getRectForArea(areaToSpawn))
-	
 
 func spanAnimal(animal, side, total):
 	var rect = getRectForArea(side)
@@ -52,7 +47,6 @@ func spanAnimal(animal, side, total):
 		var newAnimal = animal.instance()
 		newAnimal.position = getRandomPositionOnRect(rect)
 		$Animals.add_child(newAnimal)
-
 
 func getRectForArea(side):
 	var extents = side.shape.extents
@@ -69,7 +63,6 @@ func getRandomPositionOnRect(rect):
 	var ypos = rect.position.y + randi()%int(rect.size.y)
 	return Vector2(xpos, ypos)
 
-
 func target_entered(body):
 	emit_signal("exit_entered", body)
 
@@ -80,6 +73,9 @@ func open_doors():
 	for doorsfx in $SFXDoors.get_children():
 		doorsfx.playsound()
 
-func close_doors():
+func end_level():
 	for door in $Doors.get_children():
 		door.close()
+	for animal in $Animals.get_children():
+		animal.time_to_dead()
+		$Animals.remove_child(animal)

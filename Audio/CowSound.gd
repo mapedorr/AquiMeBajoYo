@@ -4,6 +4,8 @@ export (int) var spec_weight = 3
 export (int) var min_wt = 3
 export (int) var max_wt = 3
 
+signal silenced
+
 var canPlay = true
 var wait_time
 var gamerunning
@@ -12,9 +14,6 @@ func _ready():
 	gamerunning = true
 	canPlay = true
 	wait_time = int ((rand_range( min_wt, (max_wt+1))))
-	
-
-
 
 func idleMoo():
 	if gamerunning:
@@ -25,6 +24,8 @@ func idleMoo():
 			yield(get_tree().create_timer(wait_time), "timeout")
 			Moo()
 			idleMoo()
+	else:
+		emit_signal("silenced")
 
 func Moo():
 	if gamerunning:
@@ -33,4 +34,5 @@ func Moo():
 		if randomNumber <= spec_weight+1:
 			$IdleMoo.playsound()
 		canPlay = true
-	
+	else:
+		emit_signal("silenced")

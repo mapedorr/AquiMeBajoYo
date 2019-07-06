@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2(0, 0)
+var self_destroy = false
 export (float) var friction_ration = 0.9
 export (float) var max_speed = 500
 export (float) var slide_ratio = 0.8
@@ -9,7 +10,7 @@ export (float) var transference_ratio = 0.8
 
 func _ready():
 	$CowSounds.idleMoo()
-
+	$CowSounds.connect("silenced", self, "suicide")
 
 func add_force(force):
 	velocity += force
@@ -34,3 +35,10 @@ func _process(delta):
 
 func silence():
 	$CowSounds.gamerunning = false
+
+func time_to_dead():
+	self_destroy = true
+
+func suicide():
+	if self_destroy:
+		queue_free()

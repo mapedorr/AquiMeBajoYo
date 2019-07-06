@@ -229,6 +229,7 @@ editor/display_folded = true
 
 [node name="AnimatedSplash" type="AnimatedSprite" parent="Cover"]
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenarios/scripts/Bus.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Assets/bus_ejemplo.png" type="Texture" id=2]
@@ -82,6 +82,12 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 328, 195 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 79.8427, 45.1043 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 174.58, 45.1043 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 220, 214 )
@@ -357,6 +363,7 @@ is_left = false
 anims/Ride = SubResource( 10 )
 
 [node name="SFX_Bumps" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 554.532, 366.446 )
 max_distance = 8000.0
 attenuation = 1.32836e-005
@@ -383,13 +390,39 @@ stream = ExtResource( 18 )
 [node name="areas" type="Node2D" parent="."]
 
 [node name="back" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.184314, 0.772549, 0.0431373, 1 )
 position = Vector2( 35, 385 )
 shape = SubResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="backDoor" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.490196, 0.0862745, 0.890196, 1 )
+position = Vector2( -130.264, 164.999 )
+shape = SubResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="centerDoor" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.490196, 0.0862745, 0.890196, 1 )
+position = Vector2( 255, 164.999 )
+shape = SubResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="frontDoor" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.490196, 0.0862745, 0.890196, 1 )
+position = Vector2( 1023.42, 164.999 )
+shape = SubResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="center" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.184314, 0.772549, 0.0431373, 1 )
 position = Vector2( 595, 369 )
 shape = SubResource( 12 )
 __meta__ = {
@@ -397,6 +430,7 @@ __meta__ = {
 }
 
 [node name="front" type="CollisionShape2D" parent="areas"]
+modulate = Color( 0.184314, 0.772549, 0.0431373, 1 )
 position = Vector2( 1198, 364 )
 shape = SubResource( 13 )
 __meta__ = {
