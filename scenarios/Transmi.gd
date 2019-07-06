@@ -130,7 +130,7 @@ func finish_level(body = null):
 		if current_station_index >= 10:
 			current_station_index = 0
 		$Mx_Win.play()
-		$UI.win()
+		$UI.win(current_station_index)
 	else:
 		$Mx_Lose.play()
 		$UI.lose()

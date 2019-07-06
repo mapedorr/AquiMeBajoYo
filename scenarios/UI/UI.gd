@@ -29,18 +29,21 @@ func update_doors_progress(magnitude = 1):
 		$Doors.show()
 	$Doors/Progress.value -= magnitude
 
-func win():
+func win(index):
 	$TextLayer/Legend.text = "Casi no me bajo!"
 	$TextLayer/Continue.text = "Haz " + action_to_start + " para continuar"
 	$TextLayer/Continue.modulate = Color("ff477d")
 	$TextLayer.show()
+	$Progress.show()
 	$win.show()
+	next_station(index)
 
 func lose():
 	$TextLayer/Legend.text = "Se me pasó la estación"
 	$TextLayer/Continue.text = "Haz " + action_to_start + " para reintentar"
 	$TextLayer/Continue.modulate = Color("ffe36c")
 	$TextLayer.show()
+	$Progress.show()
 	$lose.show()
 
 func _on_Progress_value_changed(value):
@@ -57,8 +60,13 @@ func restart():
 	$lose.hide()
 	$TextLayer.hide()
 	$Doors.hide()
+	$Progress.hide()
 
 	$Display/AnimationPlayer.stop(true)
 	$Display/AnimationPlayer.seek(0.0, true)
 	$Travel/Progress.value = 0
 	$Travel/BusIcon.set_position(bus_icon_origin)
+
+func next_station(index):
+	var next = "advance_"+str(index-1)+"_"+str(index)
+	$Progress/ProgressAnimation.play(next)

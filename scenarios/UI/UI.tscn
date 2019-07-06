@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -30,6 +30,339 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 0.307786 ),
 "update": 0,
 "values": [ Vector2( 359, 16 ), Vector2( -485, 16 ), Vector2( -485, 16 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "advance_0_1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 134, 20 ), Vector2( 220, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Calle 45", "Minuto de Dios" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "advance_1_2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 220, 20 ), Vector2( 306, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Minuto de Dios", "Paloquemao" ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "advance_2_3"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 306, 20 ), Vector2( 392, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Paloquemao", "Sena" ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "advance_3_4"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 392, 20 ), Vector2( 468, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Sena", "Ricaurte" ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "advance_4_5"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 468, 20 ), Vector2( 554, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Ricaurte", "Banderas" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "advance_5_6"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 554, 20 ), Vector2( 640, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Banderas", "Av Jimenez" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "advance_6_7"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 20 ), Vector2( 726, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Av Jimenez", "Calle 72" ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "advance_7_8"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 726, 20 ), Vector2( 800, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Calle 72", "Calle 100" ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "advance_8_9"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bus_peque:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 20 ), Vector2( 880, 20 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bus_peque/station:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.18, -0.452235, 0, -0.25, 0, 0.25, 0, 1, -0.25, -0.426151, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bus_peque/station:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Calle 100", "San Mateo" ]
 }
 
 [node name="UI" type="CanvasLayer"]
@@ -124,7 +457,6 @@ margin_bottom = 40.0
 texture_normal = ExtResource( 11 )
 
 [node name="TextLayer" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,9 +468,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -206.0
-margin_top = 110.0
+margin_top = 84.0
 margin_right = 208.0
-margin_bottom = 128.0
+margin_bottom = 102.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Haz clic para continuar"
@@ -164,5 +496,80 @@ text = "\"Dejar salir primero es entrar más rápido\""
 align = 2
 autowrap = true
 uppercase = true
+
+[node name="Progress" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.4886
+margin_top = 502.831
+margin_right = -232.511
+margin_bottom = -165.169
+rect_scale = Vector2( 1.2, 1.2 )
+mouse_filter = 2
+
+[node name="progress-bar" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 300, 20 )
+texture = ExtResource( 3 )
+
+[node name="progress-bar2" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 386, 20 )
+texture = ExtResource( 3 )
+
+[node name="progress-bar3" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 472, 20 )
+texture = ExtResource( 3 )
+
+[node name="progress-bar4" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 558, 20 )
+texture = ExtResource( 3 )
+
+[node name="progress-bar5" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 630, 20 )
+texture = ExtResource( 3 )
+
+[node name="progress-bar6" type="Sprite" parent="Progress"]
+modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+position = Vector2( 716, 20 )
+texture = ExtResource( 3 )
+
+[node name="bus_peque" type="Sprite" parent="Progress"]
+position = Vector2( 134, 20 )
+texture = ExtResource( 4 )
+
+[node name="station" type="Label" parent="Progress/bus_peque"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -222.0
+margin_top = 12.963
+margin_right = 178.0
+margin_bottom = 30.963
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "Calle 45"
+align = 1
+uppercase = true
+
+[node name="ProgressAnimation" type="AnimationPlayer" parent="Progress"]
+anims/advance_0_1 = SubResource( 2 )
+anims/advance_1_2 = SubResource( 3 )
+anims/advance_2_3 = SubResource( 4 )
+anims/advance_3_4 = SubResource( 5 )
+anims/advance_4_5 = SubResource( 6 )
+anims/advance_5_6 = SubResource( 7 )
+anims/advance_6_7 = SubResource( 8 )
+anims/advance_7_8 = SubResource( 9 )
+anims/advance_8_9 = SubResource( 10 )
 
 [connection signal="value_changed" from="Travel/Progress" to="." method="_on_Progress_value_changed"]
