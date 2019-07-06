@@ -7,6 +7,7 @@ onready var _ui = $UI
 onready var started = false
 
 var Levels = preload("res://levels.gd")
+var start_enabled = false
 export(int) var current_station_index = 0
 
 var restarting = false
@@ -30,21 +31,25 @@ var default_level = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Connect signal listeners
-	$Cover/Background.connect("gui_input", self, "start")
+	$Cover/Container.connect("gui_input", self, "start")
 	$UI/lose.connect("gui_input", self, 'restart')
 	$UI/win.connect("gui_input", self, 'restart')
 	var action_to_start = "clic"
 	if OS.has_touchscreen_ui_hint():
 		action_to_start = "tap"
-	$Cover/Description.text = "Haz " + action_to_start + " para jugar"
+	$Cover/Container/Description.text = "Haz " + action_to_start + " para jugar"
 	$Mx.play()
+	$AnimationPlayer.connect("animation_finished", self, "enable_start")
+
+func enable_start(animation):
+	start_enabled = true
 
 func start(event):
-	if event.is_pressed():
+	if start_enabled and event.is_pressed():
 		# Hide the start screen
-		$Cover/AnimatedSplash.hide()
-		$Cover/Background.hide()
-		$Cover/Description.hide()
+		$Cover/Container.hide()
+		#$Cover/Background.hide()
+		#$Cover/Description.hide()
 		
 		init_game()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -16,9 +16,12 @@
 [ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Audio/AudioAssets/SFX_ProximaParada.ogg" type="AudioStream" id=16]
-[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=17]
-[ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=18]
-[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=19]
+[ext_resource path="res://scenarios/Assets/nube2.png" type="Texture" id=17]
+[ext_resource path="res://scenarios/Assets/nube_1.png" type="Texture" id=18]
+[ext_resource path="res://scenarios/Assets/logo_bm_cabrin.png" type="Texture" id=19]
+[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=20]
+[ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=21]
+[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -82,11 +85,96 @@ tracks/1/keys = {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
 } ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "opening"
+length = 6.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cover/Container/Background/NubesA:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.8, 3.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cover/Container/Background/NubesB:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8, 3.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Cover/Container/logo_bm_cabrin:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.14, -1.04347, 0.25, 0, 1.02163, -0.25, 0, 0.25, 0, 0, -0.11, 0.652101, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2.51, 3.01 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cover/Container/Background/NubesA:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.6, 4.5, 6, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 137, 0 ), Vector2( 72.297, 0 ), Vector2( 21.216, -720 ), Vector2( -115, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cover/Container/Background/NubesB:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.6, 4.5, 6, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 235, 0 ), Vector2( 114.324, 0 ), Vector2( 19.054, -720 ), Vector2( -235, 0 ) ]
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Cover/Container/AnimatedSplash:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 720, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 4.5, 6 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cover/Container/Description:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -225,26 +313,89 @@ stream = ExtResource( 16 )
 volume_db = 2.0
 
 [node name="Cover" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
-[node name="AnimatedSplash" type="AnimatedSprite" parent="Cover"]
+[node name="Container" type="Control" parent="Cover"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="Control" parent="Cover/Container"]
+margin_right = 1280.0
+margin_bottom = 723.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Cover/Container/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.368627, 0.964706, 1, 1 )
+
+[node name="NubesA" type="Control" parent="Cover/Container/Background"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 137.0
+margin_right = 137.0
+mouse_filter = 2
+
+[node name="nube2" type="Sprite" parent="Cover/Container/Background/NubesA"]
+position = Vector2( 316.514, 463.191 )
+texture = ExtResource( 17 )
+
+[node name="nube4" type="Sprite" parent="Cover/Container/Background/NubesA"]
+position = Vector2( 925.202, 137.262 )
+texture = ExtResource( 17 )
+
+[node name="nube3" type="Sprite" parent="Cover/Container/Background/NubesA"]
+position = Vector2( 687.77, 579.748 )
+texture = ExtResource( 17 )
+
+[node name="NubesB" type="Control" parent="Cover/Container/Background"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 235.0
+margin_right = 235.0
+mouse_filter = 2
+
+[node name="nube_1" type="Sprite" parent="Cover/Container/Background/NubesB"]
+position = Vector2( 871.24, 424.339 )
+texture = ExtResource( 18 )
+
+[node name="nube_3" type="Sprite" parent="Cover/Container/Background/NubesB"]
+position = Vector2( 1313.73, 199.858 )
+texture = ExtResource( 18 )
+
+[node name="nube_2" type="Sprite" parent="Cover/Container/Background/NubesB"]
+position = Vector2( 130.885, 193.382 )
+texture = ExtResource( 18 )
+
+[node name="logo_bm_cabrin" type="Sprite" parent="Cover/Container"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 639.897, 321.999 )
+texture = ExtResource( 19 )
+
+[node name="AnimatedSplash" type="AnimatedSprite" parent="Cover/Container"]
+position = Vector2( 0, 720 )
 frames = SubResource( 4 )
 frame = 1
 playing = true
 centered = false
 
-[node name="Background" type="Control" parent="Cover"]
-margin_right = 1280.0
-margin_bottom = 723.0
-
-[node name="Description" type="Label" parent="Cover"]
+[node name="Description" type="Label" parent="Cover/Container"]
+visible = false
 margin_left = 469.64
 margin_top = 671.595
 margin_right = 811.64
 margin_bottom = 689.595
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 0.894118, 0.388235, 1 )
 text = "Haz clic para jugar"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "opening"
+anims/opening = SubResource( 5 )
 
 [connection signal="finished" from="AudioManager/Bus_Brake" to="AudioManager" method="_on_Bus_Brake_finished"]
 [connection signal="finished" from="AudioManager/SFX_PP" to="." method="_on_SFX_PP_finished"]
