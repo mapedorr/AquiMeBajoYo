@@ -38,6 +38,7 @@ func load_level(params):
 	doors_time = params['doors_time']
 	station_name = params['estation']
 	
+	
 	var areaToSpawn = $areas.get_node(params['spawn_area'])
 	$Spawn.position = getRandomPositionOnRect(getRectForArea(areaToSpawn))
 

@@ -63,6 +63,7 @@ func init_game():
 	# Play music and SFX
 	$AudioManager/Bus_Drive.play()
 	var level = Levels.get_station(current_station_index)
+	$AudioManager.current_estacion = current_station_index
 	$Bus.load_level(level)
 	$Player.position = $Bus/Spawn.get_position()
 	$Bus.connect("exit_entered", self, "finish_level")
@@ -108,12 +109,6 @@ func restart(event):
 func _process(delta):
 	if not started:
 		return
-	if secs == 30:
-		$Mx.value = 0.2
-		$Mx.speedUp()
-	elif secs == 15:
-		$Mx.value = 0.4
-		$Mx.speedUp()
 
 func finish_level(body = null):
 	if body and body.name != "Player": return
@@ -149,6 +144,8 @@ func travel_timeout():
 		_ui.update_travel_progress()
 	else:
 		_ui.update_doors_progress()
+		$Mx.value = 0.2
+		$Mx.speedUp()
 
 	secs -= 1
 	if secs == 0:
@@ -171,10 +168,11 @@ func travel_timeout():
 		$Background/StreetsAnimation.set_speed_scale(0.5)
 	
 	if elapsed_secs == $Bus.travel_time - 6:
-		$AudioManager/SFX_PP.play()
+		$AudioManager.proximaparada()
 		$Mx.set_volume_db(-10)
 		$AudioManager/Bus_Drive.stop()
 		$AudioManager/Bus_Brake.play()
 
 func _on_SFX_PP_finished():
 	$Mx.set_volume_db(-5)
+	$AudioManager/SFX_Estacion.play()
