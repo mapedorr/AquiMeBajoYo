@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -15,15 +15,24 @@
 [ext_resource path="res://Audio/AudioAssets/SFX_BusRide.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Audio/AudioAssets/SFX_BusBrake.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Audio/AudioAssets/SFX_BusIdle.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Audio/AudioAssets/SFX_ProximaParada.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_ProximaParada-001.ogg" type="AudioStream" id=16]
 [ext_resource path="res://scenarios/SFX_Estacion.gd" type="Script" id=17]
-[ext_resource path="res://Audio/AudioAssets/SFX_Bounce_01.ogg" type="AudioStream" id=18]
-[ext_resource path="res://scenarios/Assets/nube2.png" type="Texture" id=19]
-[ext_resource path="res://scenarios/Assets/nube_1.png" type="Texture" id=20]
-[ext_resource path="res://scenarios/Assets/logo_bm_cabrin.png" type="Texture" id=21]
-[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=22]
-[ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=23]
-[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=24]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Calle45.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Minuto.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Paloquemao.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_SENA.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Ricaurte.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Banderas.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Jimenez.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Calle72.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Calle100.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Audio/AudioAssets/Estaciones/SFX_Sanmateo.ogg" type="AudioStream" id=27]
+[ext_resource path="res://scenarios/Assets/nube2.png" type="Texture" id=28]
+[ext_resource path="res://scenarios/Assets/nube_1.png" type="Texture" id=29]
+[ext_resource path="res://scenarios/Assets/logo_bm_cabrin.png" type="Texture" id=30]
+[ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=31]
+[ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=32]
+[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=33]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -87,7 +96,7 @@ tracks/1/keys = {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
@@ -311,12 +320,21 @@ volume_db = 3.0
 
 [node name="SFX_PP" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource( 16 )
-volume_db = 2.0
+volume_db = 12.0
 
 [node name="SFX_Estacion" type="AudioStreamPlayer" parent="AudioManager"]
-volume_db = 2.0
+volume_db = 12.0
 script = ExtResource( 17 )
 Calle45 = ExtResource( 18 )
+Minuto = ExtResource( 19 )
+Paloquemao = ExtResource( 20 )
+SENA = ExtResource( 21 )
+Ricaurte = ExtResource( 22 )
+Banderas = ExtResource( 23 )
+Jimenez = ExtResource( 24 )
+Calle72 = ExtResource( 25 )
+Calle100 = ExtResource( 26 )
+Sanmateo = ExtResource( 27 )
 
 [node name="Cover" type="CanvasLayer" parent="."]
 
@@ -347,15 +365,15 @@ mouse_filter = 2
 
 [node name="nube2" type="Sprite" parent="Cover/Container/Background/NubesA"]
 position = Vector2( 316.514, 463.191 )
-texture = ExtResource( 19 )
+texture = ExtResource( 28 )
 
 [node name="nube4" type="Sprite" parent="Cover/Container/Background/NubesA"]
 position = Vector2( 925.202, 137.262 )
-texture = ExtResource( 19 )
+texture = ExtResource( 28 )
 
 [node name="nube3" type="Sprite" parent="Cover/Container/Background/NubesA"]
 position = Vector2( 687.77, 579.748 )
-texture = ExtResource( 19 )
+texture = ExtResource( 28 )
 
 [node name="NubesB" type="Control" parent="Cover/Container/Background"]
 editor/display_folded = true
@@ -368,20 +386,20 @@ mouse_filter = 2
 
 [node name="nube_1" type="Sprite" parent="Cover/Container/Background/NubesB"]
 position = Vector2( 871.24, 424.339 )
-texture = ExtResource( 20 )
+texture = ExtResource( 29 )
 
 [node name="nube_3" type="Sprite" parent="Cover/Container/Background/NubesB"]
 position = Vector2( 1313.73, 199.858 )
-texture = ExtResource( 20 )
+texture = ExtResource( 29 )
 
 [node name="nube_2" type="Sprite" parent="Cover/Container/Background/NubesB"]
 position = Vector2( 130.885, 193.382 )
-texture = ExtResource( 20 )
+texture = ExtResource( 29 )
 
 [node name="logo_bm_cabrin" type="Sprite" parent="Cover/Container"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 639.897, 321.999 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="AnimatedSplash" type="AnimatedSprite" parent="Cover/Container"]
 position = Vector2( 0, 720 )
@@ -395,7 +413,7 @@ margin_left = 469.64
 margin_top = 671.595
 margin_right = 811.64
 margin_bottom = 689.595
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 custom_colors/font_color = Color( 1, 0.894118, 0.388235, 1 )
 text = "Haz clic para jugar"
 

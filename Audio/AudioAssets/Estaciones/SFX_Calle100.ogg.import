@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Calle100.ogg-9df085105bab9aea56fa81e1de58647e.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/Estaciones/SFX_Calle100.ogg"
+dest_files=[ "res://.import/SFX_Calle100.ogg-9df085105bab9aea56fa81e1de58647e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

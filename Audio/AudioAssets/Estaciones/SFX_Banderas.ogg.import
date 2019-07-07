@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_Banderas.ogg-58604b120a72cdf7490add4084ad4a3c.oggstr"
+
+[deps]
+
+source_file="res://Audio/AudioAssets/Estaciones/SFX_Banderas.ogg"
+dest_files=[ "res://.import/SFX_Banderas.ogg-58604b120a72cdf7490add4084ad4a3c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
