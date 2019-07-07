@@ -107,6 +107,11 @@ func restart(event):
 		restarting = false
 
 func _process(delta):
+	print ($UI/Doors/Progress.value)
+	if doors_open:
+		if $UI/Doors/Progress.value <= 4:
+			$Mx.value = 0.4
+			$Mx.speedUp()
 	if not started:
 		return
 
@@ -144,8 +149,6 @@ func travel_timeout():
 		_ui.update_travel_progress()
 	else:
 		_ui.update_doors_progress()
-		$Mx.value = 0.2
-		$Mx.speedUp()
 
 	secs -= 1
 	if secs == 0:
@@ -156,6 +159,8 @@ func travel_timeout():
 	if elapsed_secs == $Bus.travel_time:
 		# Open the DOORS
 		doors_open = true
+		$Mx.value = 0.2
+		$Mx.speedUp()
 		$Background/BackgroundAnimation.set_speed_scale(0)
 		$Background/StreetsAnimation.set_speed_scale(0)
 		$Bus.open_doors()
@@ -166,6 +171,7 @@ func travel_timeout():
 		$Background/StationAnimation.play("Arrival")
 		$Background/BackgroundAnimation.set_speed_scale(0.5)
 		$Background/StreetsAnimation.set_speed_scale(0.5)
+	
 	
 	if elapsed_secs == $Bus.travel_time - 6:
 		$AudioManager.proximaparada()
