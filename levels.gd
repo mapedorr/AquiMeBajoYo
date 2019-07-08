@@ -87,7 +87,7 @@ const ricaurte = {
 }
 
 const banderas = {
-	"estation": "ricaurte",
+	"estation": "banderas",
 	"travel_time": 10,
 	"doors_time": 40,
 	"spawn_area": "spawnFront",

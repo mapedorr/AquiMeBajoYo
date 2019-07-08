@@ -27,9 +27,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 5, 6 ),
-"transitions": PoolRealArray( 1, 1, 0.307786 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 359, 16 ), Vector2( -485, 16 ), Vector2( -485, 16 ) ]
+"values": [ Vector2( 359, 16 ), Vector2( -581, 16 ), Vector2( -581, 16 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -436,11 +436,11 @@ rect_clip_content = true
 light_mask = 4
 margin_left = 359.0
 margin_top = 16.0
-margin_right = 791.0
+margin_right = 917.0
 margin_bottom = 34.0
 theme = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 0, 0.407843, 1 )
-text = "Próxima parada: RICAURTE"
+text = "AVENIDA JIMÉNEZ"
 align = 1
 uppercase = true
 
@@ -457,6 +457,7 @@ margin_bottom = 40.0
 texture_normal = ExtResource( 11 )
 
 [node name="TextLayer" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

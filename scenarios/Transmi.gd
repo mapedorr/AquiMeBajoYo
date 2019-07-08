@@ -3,12 +3,11 @@ extends Node2D
 onready var secs = 0
 onready var elapsed_secs = 0
 onready var doors_open = false
-onready var _ui = $UI
 onready var started = false
 
 var Levels = preload("res://levels.gd")
 var start_enabled = false
-export(int) var current_station_index = 0
+export(int, "Calle 45", "Minuto de dios", "Paloquemao", "SENA", "Ricaurte", "Banderas", "Avenida Jiménez", "Calle 72", "Calle 100", "San Mateo") var current_station_index = 0
 
 var restarting = false
 
@@ -103,11 +102,10 @@ func restart(event):
 		yield(get_tree().create_timer(1.0), "timeout")
 		$Mx.play()
 		init_game()
-		_ui.restart()
+		# $UI.restart()
 		restarting = false
 
 func _process(delta):
-	print ($UI/Doors/Progress.value)
 	if doors_open:
 		if $UI/Doors/Progress.value <= 4:
 			$Mx.value = 0.4
@@ -124,6 +122,8 @@ func finish_level(body = null):
 	$Player.gamerunning = false
 	$Bus.end_level()
 	$Player.position = $Bus/Spawn.get_position()
+	
+	$UI.restart()
 
 	if body and body.name == "Player":
 		current_station_index += 1
@@ -138,7 +138,7 @@ func finish_level(body = null):
 
 func setup_time():
 	secs = $Bus.travel_time + $Bus.doors_time
-	_ui.initialize($Bus.travel_time, $Bus.doors_time, $Bus.station_name)
+	$UI.initialize($Bus.travel_time, $Bus.doors_time, $Bus.station_name)
 	# Listen signals and start the timer
 	$Travel.connect("timeout", self, "travel_timeout")
 	$Travel.start()
@@ -146,15 +146,15 @@ func setup_time():
 func travel_timeout():
 	# Update the UI
 	if not doors_open:
-		_ui.update_travel_progress()
+		$UI.update_travel_progress()
 	else:
-		_ui.update_doors_progress()
-
+		$UI.update_doors_progress()
+	
 	secs -= 1
 	if secs == 0:
 		finish_level()
 		return
-
+	
 	elapsed_secs += 1
 	if elapsed_secs == $Bus.travel_time:
 		# Open the DOORS
@@ -164,14 +164,13 @@ func travel_timeout():
 		$Background/BackgroundAnimation.set_speed_scale(0)
 		$Background/StreetsAnimation.set_speed_scale(0)
 		$Bus.open_doors()
-		_ui.show_station()
+		$UI.show_station()
 	
 	if elapsed_secs == $Bus.travel_time - 3:
 		$Background/Station.show()
 		$Background/StationAnimation.play("Arrival")
 		$Background/BackgroundAnimation.set_speed_scale(0.5)
 		$Background/StreetsAnimation.set_speed_scale(0.5)
-	
 	
 	if elapsed_secs == $Bus.travel_time - 6:
 		$AudioManager.proximaparada()

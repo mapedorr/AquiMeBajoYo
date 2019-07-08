@@ -304,6 +304,7 @@ position = Vector2( 1810, 0 )
 texture = ExtResource( 11 )
 
 [node name="AudioManager" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Bus_Drive" type="AudioStreamPlayer" parent="AudioManager"]
@@ -404,6 +405,7 @@ texture = ExtResource( 30 )
 [node name="AnimatedSplash" type="AnimatedSprite" parent="Cover/Container"]
 position = Vector2( 0, 720 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 

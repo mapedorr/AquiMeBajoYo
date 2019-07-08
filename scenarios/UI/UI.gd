@@ -14,6 +14,11 @@ func _ready():
 		action_to_start = "tap"
 
 func initialize(travel_time, doors_time, station_name):
+	$win.hide()
+	$lose.hide()
+	$TextLayer.hide()
+	$Progress.hide()
+
 	$Travel/Progress.max_value = travel_time
 	$Doors/Progress.max_value = doors_time
 	$Doors/Progress.value = doors_time
@@ -53,14 +58,10 @@ func _on_Progress_value_changed(value):
 func show_station():
 	$Display/AnimationPlayer.stop()
 	$Display/Control/StopName.set_text(current_station)
-	$Display/Control/StopName.set_position(Vector2(-38.0, 16.0))
+	$Display/Control/StopName.set_position(Vector2(-102.0, 16.0))
 
 func restart():
-	$win.hide()
-	$lose.hide()
-	$TextLayer.hide()
 	$Doors.hide()
-	$Progress.hide()
 
 	$Display/AnimationPlayer.stop(true)
 	$Display/AnimationPlayer.seek(0.0, true)
