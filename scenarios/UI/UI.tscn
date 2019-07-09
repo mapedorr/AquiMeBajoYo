@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenarios/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/UI/Assets/progress-over.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=12]
 [ext_resource path="res://custom_resources/dynamic_fonts/Fredoka48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://custom_resources/dynamic_fonts/Fredoka32.tres" type="DynamicFont" id=14]
+[ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pass"
@@ -31,6 +32,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 359, 16 ), Vector2( -581, 16 ), Vector2( -581, 16 ) ]
 }
+
+[sub_resource type="DynamicFont" id=11]
+size = 14
+font_data = ExtResource( 15 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "advance_0_1"
@@ -457,7 +462,6 @@ margin_bottom = 40.0
 texture_normal = ExtResource( 11 )
 
 [node name="TextLayer" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -484,58 +488,58 @@ margin_right = 975.864
 margin_bottom = 382.408
 custom_fonts/font = ExtResource( 13 )
 text = "Casi no me bajo!"
-uppercase = true
 
 [node name="Learning" type="Label" parent="TextLayer"]
 anchor_right = 1.0
-margin_left = 489.238
+margin_left = 479.238
 margin_top = 593.742
-margin_right = -428.762
+margin_right = -438.762
 margin_bottom = 657.742
 custom_fonts/font = ExtResource( 14 )
 text = "\"Dejar salir primero es entrar más rápido\""
 align = 2
 autowrap = true
-uppercase = true
 
 [node name="Progress" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.4886
-margin_top = 502.831
-margin_right = -232.511
-margin_bottom = -165.169
-rect_scale = Vector2( 1.2, 1.2 )
+margin_left = 132.594
+margin_top = 502.515
+margin_right = -130.406
+margin_bottom = -165.485
 mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="progress-bar" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 300, 20 )
 texture = ExtResource( 3 )
 
 [node name="progress-bar2" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 386, 20 )
 texture = ExtResource( 3 )
 
 [node name="progress-bar3" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 472, 20 )
 texture = ExtResource( 3 )
 
 [node name="progress-bar4" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 558, 20 )
 texture = ExtResource( 3 )
 
 [node name="progress-bar5" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 630, 20 )
 texture = ExtResource( 3 )
 
 [node name="progress-bar6" type="Sprite" parent="Progress"]
-modulate = Color( 0.733333, 0.854902, 0.843137, 1 )
+modulate = Color( 0.87451, 0.262745, 1, 1 )
 position = Vector2( 716, 20 )
 texture = ExtResource( 3 )
 
@@ -553,9 +557,8 @@ margin_top = 12.963
 margin_right = 178.0
 margin_bottom = 30.963
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 text = "Calle 45"
