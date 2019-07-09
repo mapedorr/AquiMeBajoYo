@@ -45,7 +45,7 @@ func _ready():
 	AdMob = Engine.get_singleton("AdMob")
 	var _dict = Dictionary()
 	_dict["InterstitialAd"] = true
-	_dict["InterstitialAdId"] = "ca-app-pub-3940256099942544/1033173712"
+	_dict["InterstitialAdId"] = "ca-app-pub-3870090842957703/3027332521"
 	AdMob.init(_dict, get_instance_id())
 	$AnimationPlayer.connect("animation_finished", self, "enable_start")
 
