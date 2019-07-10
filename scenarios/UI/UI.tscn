@@ -33,12 +33,11 @@ tracks/0/keys = {
 "values": [ Vector2( 359, 16 ), Vector2( -581, 16 ), Vector2( -581, 16 ) ]
 }
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=2]
 size = 14
 font_data = ExtResource( 15 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "advance_0_1"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -74,8 +73,7 @@ tracks/2/keys = {
 "values": [ "Calle 45", "Minuto de Dios" ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "advance_1_2"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -111,8 +109,7 @@ tracks/2/keys = {
 "values": [ "Minuto de Dios", "Paloquemao" ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "advance_2_3"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -148,8 +145,7 @@ tracks/2/keys = {
 "values": [ "Paloquemao", "Sena" ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "advance_3_4"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -185,8 +181,7 @@ tracks/2/keys = {
 "values": [ "Sena", "Ricaurte" ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "advance_4_5"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -222,8 +217,7 @@ tracks/2/keys = {
 "values": [ "Ricaurte", "Banderas" ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "advance_5_6"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -259,8 +253,7 @@ tracks/2/keys = {
 "values": [ "Banderas", "Av Jimenez" ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "advance_6_7"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -296,8 +289,7 @@ tracks/2/keys = {
 "values": [ "Av Jimenez", "Calle 72" ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "advance_7_8"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -333,8 +325,7 @@ tracks/2/keys = {
 "values": [ "Calle 72", "Calle 100" ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "advance_8_9"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("bus_peque:position")
 tracks/0/interp = 1
@@ -557,7 +548,7 @@ margin_top = 12.963
 margin_right = 178.0
 margin_bottom = 30.963
 grow_horizontal = 2
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -566,14 +557,14 @@ align = 1
 uppercase = true
 
 [node name="ProgressAnimation" type="AnimationPlayer" parent="Progress"]
-anims/advance_0_1 = SubResource( 2 )
-anims/advance_1_2 = SubResource( 3 )
-anims/advance_2_3 = SubResource( 4 )
-anims/advance_3_4 = SubResource( 5 )
-anims/advance_4_5 = SubResource( 6 )
-anims/advance_5_6 = SubResource( 7 )
-anims/advance_6_7 = SubResource( 8 )
-anims/advance_7_8 = SubResource( 9 )
-anims/advance_8_9 = SubResource( 10 )
+anims/advance_0_1 = SubResource( 3 )
+anims/advance_1_2 = SubResource( 4 )
+anims/advance_2_3 = SubResource( 5 )
+anims/advance_3_4 = SubResource( 6 )
+anims/advance_4_5 = SubResource( 7 )
+anims/advance_5_6 = SubResource( 8 )
+anims/advance_6_7 = SubResource( 9 )
+anims/advance_7_8 = SubResource( 10 )
+anims/advance_8_9 = SubResource( 11 )
 
 [connection signal="value_changed" from="Travel/Progress" to="." method="_on_Progress_value_changed"]

@@ -4,6 +4,7 @@ onready var secs = 0
 onready var elapsed_secs = 0
 onready var doors_open = false
 onready var started = false
+onready var time_to_annoy = -1
 
 var Levels = preload("res://levels.gd")
 var start_enabled = false
@@ -45,7 +46,10 @@ func _ready():
 	AdMob = Engine.get_singleton("AdMob")
 	var _dict = Dictionary()
 	_dict["InterstitialAd"] = true
+	# public ID >>
 	_dict["InterstitialAdId"] = "ca-app-pub-3870090842957703/3027332521"
+	# tests ID >>
+	#_dict["InterstitialAdId"] = "ca-app-pub-3940256099942544/1033173712"
 	AdMob.init(_dict, get_instance_id())
 	$AnimationPlayer.connect("animation_finished", self, "enable_start")
 
@@ -80,6 +84,11 @@ func init_tutorial():
 	init_game()
 
 func init_game():
+	time_to_annoy += 1
+	if time_to_annoy == 3:
+		time_to_annoy = 0
+		AdMob.show_interstitial_ad()
+	
 	# Play animations
 	$Background/BackgroundAnimation.play("Platforms")
 	$Background/StreetsAnimation.play("Streets")
@@ -161,7 +170,6 @@ func finish_level(body = null):
 	else:
 		$Mx_Lose.play()
 		$UI.lose()
-	AdMob.show_interstitial_ad()
 
 
 func setup_time():
