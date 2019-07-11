@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenarios/Transmi.gd" type="Script" id=1]
 [ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://scenarios/Assets/portada.png" type="Texture" id=31]
 [ext_resource path="res://scenarios/Assets/portada2.png" type="Texture" id=32]
 [ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=33]
+[ext_resource path="res://scenarios/Tutorial.tscn" type="PackedScene" id=34]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Streets"
@@ -194,9 +195,11 @@ __meta__ = {
 }
 
 [node name="Bus" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 0, 13 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 640.5, 330 )
 base_speed = 250
 VxWeight = 70
@@ -421,6 +424,12 @@ text = "Haz clic para jugar"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "opening"
 anims/opening = SubResource( 5 )
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="_01" parent="Tutorial" instance=ExtResource( 34 )]
+visible = false
 
 [connection signal="finished" from="AudioManager/Bus_Brake" to="AudioManager" method="_on_Bus_Brake_finished"]
 [connection signal="finished" from="AudioManager/SFX_PP" to="." method="_on_SFX_PP_finished"]

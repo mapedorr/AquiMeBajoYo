@@ -50,7 +50,25 @@ func start(event):
 		#$Cover/Background.hide()
 		#$Cover/Description.hide()
 		
-		init_game()
+		#init_game()
+		init_tutorial()
+
+func init_tutorial():
+	$Tutorial/_01.show()
+	$Tutorial/_01.start()
+	yield($Tutorial/_01, "close_me")
+	$Tutorial/_01.hide()
+	$Tutorial/_01.queue_free()
+	var tutorial_2 = load("res://scenarios/Tutorial_02.tscn").instance()
+	$Tutorial.add_child(tutorial_2)
+	tutorial_2.show()
+	tutorial_2.start()
+	yield(tutorial_2, "close_me")
+	tutorial_2.hide()
+	tutorial_2.queue_free()
+	$Bus.show()
+	$Player.show()
+	init_game()
 
 func init_game():
 	# Play animations

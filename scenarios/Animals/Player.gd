@@ -6,7 +6,8 @@ export (int) var VxWeight
 var velocity = Vector2()
 var run_speed = base_speed
 var canPlay = true
-var gamerunning
+export (bool) var gamerunning = true
+export (bool) var dummy_player = false
 
 
 var increased = 0
@@ -16,7 +17,7 @@ var input_position = Vector2(0, 0)
 
 
 func _ready():
-	gamerunning = true
+	pass
 
 func decrease_size():
 	increased += 40
@@ -39,6 +40,9 @@ func increase_size():
 		$Sprite.scale.x = 1.0
 
 func get_input(delta):
+	if dummy_player:
+		self.increase_size()
+		return
 	
 	var local_speed = Vector2()
 

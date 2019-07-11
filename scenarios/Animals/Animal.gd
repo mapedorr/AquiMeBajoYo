@@ -6,11 +6,12 @@ export (float) var friction_ration = 0.9
 export (float) var max_speed = 500
 export (float) var slide_ratio = 0.8
 export (float) var transference_ratio = 0.8
-
+export (bool) var silenced = false
 
 func _ready():
-	$CowSounds.idleMoo()
-	$CowSounds.connect("silenced", self, "suicide")
+	if not silenced:
+		$CowSounds.idleMoo()
+		$CowSounds.connect("silenced", self, "suicide")
 
 func add_force(force):
 	velocity += force

@@ -1,0 +1,279 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenarios/Tutorial.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenarios/Tutorial_02.gd" type="Script" id=2]
+[ext_resource path="res://scenarios/Animals/Marrano.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "touchs"
+length = 4.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 889.767, 561.685 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.601, 1.1, 1.6, 1.7, 3, 3.2, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 444.119, 367.464 ), Vector2( 444.119, 367.464 ), Vector2( 477.236, 369.412 ), Vector2( 472.236, 369.412 ), Vector2( 466.236, 369.412 ), Vector2( 466.236, 369.412 ), Vector2( 472.236, 369.412 ), Vector2( 567.689, 373.308 ), Vector2( 594.538, 372.857 ), Vector2( 782.484, 369.698 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 1, 1.6, 3.15, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "press"
+}, {
+"args": [  ],
+"method": "relase"
+}, {
+"args": [  ],
+"method": "keep_touching"
+}, {
+"args": [  ],
+"method": "press"
+}, {
+"args": [  ],
+"method": "relase"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Player")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.2, 2.25, 2.3, 2.35, 2.4, 2.45, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 2.95, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "decrease_size"
+}, {
+"args": [  ],
+"method": "increase_size"
+} ]
+}
+
+[node name="Tutorial_02" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="background" parent="." index="0"]
+position = Vector2( 5, 0 )
+
+[node name="Bus" parent="." index="1"]
+position = Vector2( -214, 0 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/touchs = SubResource( 1 )
+
+[node name="Animal" parent="vacas" index="0"]
+visible = false
+
+[node name="Animal6" parent="vacas" index="1"]
+visible = false
+
+[node name="Animal2" parent="vacas" index="2"]
+visible = false
+
+[node name="Animal5" parent="vacas" index="3"]
+visible = false
+
+[node name="Animal3" parent="vacas" index="4"]
+position = Vector2( 532.802, 323.582 )
+
+[node name="Animal4" parent="vacas" index="5"]
+position = Vector2( 549.473, 418.028 )
+
+[node name="Marrano" parent="vacas" index="6" instance=ExtResource( 3 )]
+position = Vector2( 405.466, 268.576 )
+silenced = true
+
+[node name="Marrano6" parent="vacas" index="7" instance=ExtResource( 3 )]
+position = Vector2( 564.353, 173.074 )
+silenced = true
+
+[node name="Marrano2" parent="vacas" index="8" instance=ExtResource( 3 )]
+position = Vector2( 348.234, 364.599 )
+silenced = true
+
+[node name="Marrano3" parent="vacas" index="9" instance=ExtResource( 3 )]
+position = Vector2( 367.748, 478.364 )
+silenced = true
+
+[node name="Marrano4" parent="vacas" index="10" instance=ExtResource( 3 )]
+position = Vector2( 604.833, 260.825 )
+silenced = true
+
+[node name="Marrano10" parent="vacas" index="11" instance=ExtResource( 3 )]
+position = Vector2( 686.058, 206.26 )
+silenced = true
+
+[node name="Marrano11" parent="vacas" index="12" instance=ExtResource( 3 )]
+position = Vector2( 696.888, 525.94 )
+silenced = true
+
+[node name="Marrano12" parent="vacas" index="13" instance=ExtResource( 3 )]
+position = Vector2( 278.371, 441.832 )
+silenced = true
+
+[node name="Marrano14" parent="vacas" index="14" instance=ExtResource( 3 )]
+position = Vector2( 260.078, 540.38 )
+silenced = true
+
+[node name="Marrano15" parent="vacas" index="15" instance=ExtResource( 3 )]
+position = Vector2( 290.763, 175.77 )
+silenced = true
+
+[node name="Marrano16" parent="vacas" index="16" instance=ExtResource( 3 )]
+position = Vector2( 222.132, 349.93 )
+silenced = true
+
+[node name="Marrano13" parent="vacas" index="17" instance=ExtResource( 3 )]
+position = Vector2( 296.753, 273.482 )
+silenced = true
+
+[node name="Marrano5" parent="vacas" index="18" instance=ExtResource( 3 )]
+position = Vector2( 640.007, 440.046 )
+silenced = true
+
+[node name="Animal7" parent="vacas" index="19" instance=ExtResource( 4 )]
+position = Vector2( 690.638, 301.433 )
+silenced = true
+
+[node name="Animal12" parent="vacas" index="20" instance=ExtResource( 4 )]
+position = Vector2( 576.845, 558.003 )
+silenced = true
+
+[node name="Animal8" parent="vacas" index="21" instance=ExtResource( 4 )]
+position = Vector2( 470.315, 557.79 )
+silenced = true
+
+[node name="Animal9" parent="vacas" index="22" instance=ExtResource( 4 )]
+position = Vector2( 526.336, 496.828 )
+scale = Vector2( 0.9, 0.9 )
+silenced = true
+
+[node name="Animal13" parent="vacas" index="23" instance=ExtResource( 4 )]
+position = Vector2( 452.547, 452.828 )
+silenced = true
+
+[node name="Animal10" parent="vacas" index="24" instance=ExtResource( 4 )]
+position = Vector2( 500.879, 243.834 )
+silenced = true
+
+[node name="Animal11" parent="vacas" index="25" instance=ExtResource( 4 )]
+position = Vector2( 470.742, 162.569 )
+silenced = true
+
+[node name="Player" parent="." index="4"]
+position = Vector2( 444.119, 367.464 )
+rotation = 4.71239
+
+[node name="Label3" parent="." index="7"]
+margin_left = 54.0
+margin_top = 12.0
+margin_right = 503.0
+margin_bottom = 105.0
+text = "Presiona repetidamente para salir del tumulto"
+
+[node name="hand" parent="." index="8"]
+position = Vector2( 889.767, 561.685 )
+

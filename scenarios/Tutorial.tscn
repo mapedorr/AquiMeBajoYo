@@ -1,0 +1,203 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenarios/Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://scenarios/Assets/anden.png" type="Texture" id=2]
+[ext_resource path="res://scenarios/Assets/calle.png" type="Texture" id=3]
+[ext_resource path="res://scenarios/Buses/BaseBus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenarios/Animals/Animal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenarios/Animals/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenarios/UI/Assets/bocao.png" type="Texture" id=7]
+[ext_resource path="res://custom_resources/dynamic_fonts/PressStart2P-18.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenarios/UI/hand.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "move to"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("hand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.9, 2.6, 3.3, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "press"
+}, {
+"args": [  ],
+"method": "relase"
+}, {
+"args": [  ],
+"method": "press"
+}, {
+"args": [  ],
+"method": "relase"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.6, 3.3, 4.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 636.973, 440.697 ), Vector2( 636.973, 440.697 ), Vector2( 904.202, 241.946 ), Vector2( 904.202, 241.946 ), Vector2( 970.842, 424.413 ), Vector2( 970.842, 424.413 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 3.3, 3.4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -140.0, -140.0, -20.0, -20.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 2.6, 3.3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1004.7, 421.428 ), Vector2( 1004.7, 421.428 ), Vector2( 1004.7, 421.428 ), Vector2( 1042.79, 655.412 ), Vector2( 1042.79, 655.412 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 642.155 ]
+}
+
+[node name="background" type="Node2D" parent="."]
+position = Vector2( 219, 0 )
+
+[node name="anden" type="Sprite" parent="background"]
+position = Vector2( 100, 20 )
+texture = ExtResource( 2 )
+
+[node name="anden2" type="Sprite" parent="background"]
+position = Vector2( 960, 20 )
+texture = ExtResource( 2 )
+
+[node name="calle" type="Sprite" parent="background"]
+position = Vector2( 350, 680 )
+texture = ExtResource( 3 )
+offset = Vector2( 57, -15.572 )
+
+[node name="calle6" type="Sprite" parent="background"]
+position = Vector2( -196, 680 )
+texture = ExtResource( 3 )
+offset = Vector2( 57, -15.572 )
+
+[node name="calle3" type="Sprite" parent="background"]
+position = Vector2( 954, 664.428 )
+texture = ExtResource( 3 )
+
+[node name="calle5" type="Sprite" parent="background"]
+position = Vector2( 1227, 664.428 )
+texture = ExtResource( 3 )
+
+[node name="calle2" type="Sprite" parent="background"]
+position = Vector2( 350, 680 )
+texture = ExtResource( 3 )
+offset = Vector2( -216, -15.572 )
+
+[node name="calle7" type="Sprite" parent="background"]
+position = Vector2( -197, 680 )
+texture = ExtResource( 3 )
+offset = Vector2( -216, -15.572 )
+
+[node name="calle4" type="Sprite" parent="background"]
+position = Vector2( 349, 680 )
+texture = ExtResource( 3 )
+offset = Vector2( 331, -15.572 )
+
+[node name="Bus" parent="." instance=ExtResource( 4 )]
+z_as_relative = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/move to" = SubResource( 1 )
+
+[node name="vacas" type="Node2D" parent="."]
+
+[node name="Animal" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 771.624, 308.984 )
+silenced = true
+
+[node name="Animal6" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 898.057, 239.922 )
+silenced = true
+
+[node name="Animal2" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 856.804, 355.749 )
+silenced = true
+
+[node name="Animal5" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 967.119, 351.156 )
+silenced = true
+
+[node name="Animal3" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 392.493, 302.303 )
+silenced = true
+
+[node name="Animal4" parent="vacas" instance=ExtResource( 5 )]
+position = Vector2( 429.237, 422.556 )
+silenced = true
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 636.973, 440.697 )
+gamerunning = false
+dummy_player = true
+
+[node name="bocao" type="Sprite" parent="."]
+position = Vector2( 280, 60 )
+scale = Vector2( 1.1, 1 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 0.890196, 0.423529, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -226.0
+margin_top = 667.158
+margin_right = 170.0
+margin_bottom = 685.158
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 8 )
+text = "Haz Tap para continuar"
+align = 1
+uppercase = true
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 53.8448
+margin_top = 11.9771
+margin_right = 565.845
+margin_bottom = 104.977
+custom_fonts/font = SubResource( 3 )
+text = "Mantén presionado para guiar al cabrón a la salida"
+autowrap = true
+
+[node name="hand" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1004.7, 421.428 )
+z_index = 2
+
